@@ -12,16 +12,29 @@ struct CharacterList: View {
     @ObservedObject private var viewModel: CharacterListViewModel = Container.CharactersListContainer.resolve(CharacterListViewModel.self)!
     
     var body: some View {
-        List() {
-            ForEach($viewModel.characters) { character in
-                CharacterRow(character: character.wrappedValue)
-                    .listRowInsets(EdgeInsets())
+        NavigationView {
+            List() {
+                ForEach($viewModel.filteredCharacters) { character in
+                    CharacterRow(character: character.wrappedValue)
+                        .listRowInsets(EdgeInsets())
+                }
             }
-        }
-        .background(.gray.opacity(0.25))
-        .listStyle(PlainListStyle())
-        .onViewDidLoad {
-            viewModel.fetchCharacters()
+            .searchable(text: $viewModel.searchQuery, prompt: "Search Characters by Name"
+            ) {
+                ForEach($viewModel.filteredCharacters) { character in
+                    Text(character.wrappedValue.name)
+                        .searchCompletion(character.wrappedValue.name)
+                }
+            }
+            .onChange(of: viewModel.searchQuery) { _ in
+                viewModel.filterCharacters()
+            }
+            .navigationTitle("Breaking Bad")
+            .background(.gray.opacity(0.25))
+            .listStyle(PlainListStyle())
+            .onViewDidLoad {
+                viewModel.fetchCharacters()
+            }
         }
     }
 }

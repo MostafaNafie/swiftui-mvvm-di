@@ -9,9 +9,11 @@ import Combine
 import Foundation
 
 final class CharacterListViewModel: ObservableObject {
-    @Published var characters: [Character] = []
+    @Published var filteredCharacters: [Character] = []
+    @Published var searchQuery: String = ""
     
     private let networkService: CharacterListNetworkServicing
+    private var characters: [Character] = []
     private var cancellable: AnyCancellable? = nil
     
     init(networkService: CharacterListNetworkServicing) {
@@ -33,6 +35,14 @@ final class CharacterListViewModel: ObservableObject {
                 self?.cancellable?.cancel()
             }, receiveValue: { value in
                 self.characters = value
+                self.filteredCharacters = value
             })
+    }
+    
+    func filterCharacters() {
+        filteredCharacters = characters.filter {
+            searchQuery.isEmpty ? true : $0.name
+                .localizedCaseInsensitiveContains(searchQuery)
+        }
     }
 }
