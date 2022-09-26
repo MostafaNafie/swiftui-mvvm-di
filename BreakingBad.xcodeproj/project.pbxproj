@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		A37344EE28E20B7400DA7143 /* CharacterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37344ED28E20B7400DA7143 /* CharacterRow.swift */; };
 		A37344F028E2127000DA7143 /* Caption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37344EF28E2127000DA7143 /* Caption.swift */; };
-		A37344F228E2186600DA7143 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37344F128E2186600DA7143 /* DataModel.swift */; };
+		A37344F228E2186600DA7143 /* CharactersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37344F128E2186600DA7143 /* CharactersResponse.swift */; };
 		A37344F428E2189800DA7143 /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37344F328E2189800DA7143 /* CharacterList.swift */; };
 		A37344FA28E21A7000DA7143 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37344F928E21A7000DA7143 /* CharacterListViewModel.swift */; };
 		A37344FD28E21C4F00DA7143 /* View+onViewDidLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37344FC28E21C4F00DA7143 /* View+onViewDidLoad.swift */; };
 		A373450028E22BF300DA7143 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A37344FF28E22BF300DA7143 /* Kingfisher */; };
 		A373450228E22FCA00DA7143 /* View+isHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373450128E22FCA00DA7143 /* View+isHidden.swift */; };
+		A373450528E232C500DA7143 /* CharacterListNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373450428E232C500DA7143 /* CharacterListNetworkService.swift */; };
+		A373450828E234CA00DA7143 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373450728E234CA00DA7143 /* HTTPClient.swift */; };
+		A373450A28E234E000DA7143 /* URLSessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373450928E234E000DA7143 /* URLSessionClient.swift */; };
+		A373450D28E238E600DA7143 /* CharactersListViewModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373450C28E238E600DA7143 /* CharactersListViewModelData.swift */; };
 		A3EC370B28E1AF4900329FF4 /* BreakingBadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EC370A28E1AF4900329FF4 /* BreakingBadApp.swift */; };
 		A3EC370F28E1AF4A00329FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3EC370E28E1AF4A00329FF4 /* Assets.xcassets */; };
 		A3EC371228E1AF4A00329FF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3EC371128E1AF4A00329FF4 /* Preview Assets.xcassets */; };
@@ -23,11 +27,15 @@
 /* Begin PBXFileReference section */
 		A37344ED28E20B7400DA7143 /* CharacterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRow.swift; sourceTree = "<group>"; };
 		A37344EF28E2127000DA7143 /* Caption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caption.swift; sourceTree = "<group>"; };
-		A37344F128E2186600DA7143 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		A37344F128E2186600DA7143 /* CharactersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResponse.swift; sourceTree = "<group>"; };
 		A37344F328E2189800DA7143 /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 		A37344F928E21A7000DA7143 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
 		A37344FC28E21C4F00DA7143 /* View+onViewDidLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+onViewDidLoad.swift"; sourceTree = "<group>"; };
 		A373450128E22FCA00DA7143 /* View+isHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+isHidden.swift"; sourceTree = "<group>"; };
+		A373450428E232C500DA7143 /* CharacterListNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListNetworkService.swift; sourceTree = "<group>"; };
+		A373450728E234CA00DA7143 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		A373450928E234E000DA7143 /* URLSessionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClient.swift; sourceTree = "<group>"; };
+		A373450C28E238E600DA7143 /* CharactersListViewModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewModelData.swift; sourceTree = "<group>"; };
 		A3EC370728E1AF4900329FF4 /* BreakingBad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakingBad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EC370A28E1AF4900329FF4 /* BreakingBadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingBadApp.swift; sourceTree = "<group>"; };
 		A3EC370E28E1AF4A00329FF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,9 +65,9 @@
 		A37344F628E218E900DA7143 /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
-				A37344F128E2186600DA7143 /* DataModel.swift */,
+				A373450328E2328500DA7143 /* Network */,
 				A37344F728E2190100DA7143 /* Views */,
-				A37344F928E21A7000DA7143 /* CharacterListViewModel.swift */,
+				A373450B28E238C500DA7143 /* ViewModel */,
 			);
 			path = CharacterList;
 			sourceTree = "<group>";
@@ -67,8 +75,8 @@
 		A37344F728E2190100DA7143 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A37344ED28E20B7400DA7143 /* CharacterRow.swift */,
 				A37344F328E2189800DA7143 /* CharacterList.swift */,
+				A37344ED28E20B7400DA7143 /* CharacterRow.swift */,
 				A37344EF28E2127000DA7143 /* Caption.swift */,
 			);
 			path = Views;
@@ -77,6 +85,7 @@
 		A37344F828E219A900DA7143 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A373450628E234AC00DA7143 /* Network */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -88,6 +97,33 @@
 				A373450128E22FCA00DA7143 /* View+isHidden.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A373450328E2328500DA7143 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A373450428E232C500DA7143 /* CharacterListNetworkService.swift */,
+				A37344F128E2186600DA7143 /* CharactersResponse.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A373450628E234AC00DA7143 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A373450728E234CA00DA7143 /* HTTPClient.swift */,
+				A373450928E234E000DA7143 /* URLSessionClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A373450B28E238C500DA7143 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A37344F928E21A7000DA7143 /* CharacterListViewModel.swift */,
+				A373450C28E238E600DA7143 /* CharactersListViewModelData.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A3EC36FE28E1AF4900329FF4 = {
@@ -203,11 +239,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A37344F228E2186600DA7143 /* DataModel.swift in Sources */,
+				A37344F228E2186600DA7143 /* CharactersResponse.swift in Sources */,
 				A37344EE28E20B7400DA7143 /* CharacterRow.swift in Sources */,
+				A373450D28E238E600DA7143 /* CharactersListViewModelData.swift in Sources */,
+				A373450528E232C500DA7143 /* CharacterListNetworkService.swift in Sources */,
+				A373450A28E234E000DA7143 /* URLSessionClient.swift in Sources */,
 				A37344F428E2189800DA7143 /* CharacterList.swift in Sources */,
 				A37344F028E2127000DA7143 /* Caption.swift in Sources */,
 				A373450228E22FCA00DA7143 /* View+isHidden.swift in Sources */,
+				A373450828E234CA00DA7143 /* HTTPClient.swift in Sources */,
 				A37344FA28E21A7000DA7143 /* CharacterListViewModel.swift in Sources */,
 				A3EC370B28E1AF4900329FF4 /* BreakingBadApp.swift in Sources */,
 				A37344FD28E21C4F00DA7143 /* View+onViewDidLoad.swift in Sources */,
