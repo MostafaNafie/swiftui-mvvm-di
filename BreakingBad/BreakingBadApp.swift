@@ -11,7 +11,7 @@ import SwiftUI
 struct BreakingBadApp: App {
     var body: some Scene {
         WindowGroup {
-            CharacterList(viewModel: CharacterListViewModel(networkService: CharacterListNetworkService(client: URLSessionClient())))
+            CharacterList()
         }
     }
 }

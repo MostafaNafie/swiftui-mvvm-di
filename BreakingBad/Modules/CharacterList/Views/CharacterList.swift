@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import Swinject
 
 struct CharacterList: View {
-    @ObservedObject var viewModel: CharacterListViewModel
+    @ObservedObject private var viewModel: CharacterListViewModel = Container.CharactersListContainer.resolve(CharacterListViewModel.self)!
     
     var body: some View {
         List() {
@@ -27,6 +28,6 @@ struct CharacterList: View {
 
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterList(viewModel: CharacterListViewModel(networkService: CharacterListNetworkService(client: URLSessionClient())))
+        CharacterList()
     }
 }
