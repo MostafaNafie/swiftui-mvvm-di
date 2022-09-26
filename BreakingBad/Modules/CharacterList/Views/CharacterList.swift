@@ -8,21 +8,25 @@
 import SwiftUI
 
 struct CharacterList: View {
-    let characters: [Character] = [Character(id: 1), Character(id: 2), Character(id: 3), Character(id: 4), Character(id: 5)]
+    @ObservedObject var viewModel: CharacterListViewModel
     
     var body: some View {
-        List {
-            ForEach(characters) { item in
-                CharacterRow()
+        List() {
+            ForEach($viewModel.characters) { character in
+                CharacterRow(character: character.wrappedValue)
                     .listRowInsets(EdgeInsets())
             }
         }
+        .background(.gray.opacity(0.25))
         .listStyle(PlainListStyle())
+        .onViewDidLoad {
+            viewModel.fetchCharacters()
+        }
     }
 }
 
 struct CharacterList_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterList()
+        CharacterList(viewModel: CharacterListViewModel(networkService: CharacterListNetworkService(client: URLSessionClient())))
     }
 }

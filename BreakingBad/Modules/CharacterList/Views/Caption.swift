@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Caption: View {
     let text: String
+    
     var body: some View {
         Text(text)
             .fontWeight(.semibold)
