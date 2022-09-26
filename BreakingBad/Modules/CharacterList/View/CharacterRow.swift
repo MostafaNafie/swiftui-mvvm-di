@@ -32,15 +32,13 @@ struct CharacterRow: View {
                     .isHidden(!isAnimating)
             }
             .cornerRadius(14)
-            .padding(5)
-            .background(.gray.opacity(0.25))
     }
     
 }
 
 struct CharacterRow_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterRow(character: .init(id: 1, name: "Walter White", imageUrl: URL(string: "https://vignette.wikia.nocookie.net/breakingbad/images/c/c1/4x11_-_Huell.png/revision/latest?cb=20130913100459&path-prefix=es")!))
+        CharacterRow(character: .init(id: 1, name: "Walter White", imageUrl: URL(string: "https://vignette.wikia.nocookie.net/breakingbad/images/c/c1/4x11_-_Huell.png/revision/latest?cb=20130913100459&path-prefix=es")!, nickname: "Walter", birthday: "23/23/23"))
             .previewLayout(.fixed(width: 300, height: 200))
     }
 }

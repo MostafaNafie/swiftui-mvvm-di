@@ -23,7 +23,13 @@ final class CharacterListViewModel: ObservableObject {
     func fetchCharacters() {
         self.cancellable = self.networkService.fetchCharacters()
             .map{ charactersResponse in
-                charactersResponse.map { Character(id: $0.id, name: $0.name, imageUrl: URL(string: $0.img)!) }
+                charactersResponse.map {
+                    Character(id: $0.id,
+                              name: $0.name,
+                              imageUrl: URL(string: $0.img)!,
+                              nickname: $0.nickname,
+                              birthday: $0.birthday)
+                }
             }
             .sink( receiveCompletion: { [weak self] completion in
                 switch completion {

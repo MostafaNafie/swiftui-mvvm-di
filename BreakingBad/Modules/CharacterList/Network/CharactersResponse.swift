@@ -12,11 +12,11 @@ enum CharactersNetwork {
     struct Character: Codable {
         let id: Int
         let name: String
-        let birthday: String?
+        let birthday: String
         let occupation: [String]?
         let img: String
         let status: Status?
-        let nickname: String?
+        let nickname: String
         let appearance: [Int]?
         let portrayed: String?
         let category: Category?

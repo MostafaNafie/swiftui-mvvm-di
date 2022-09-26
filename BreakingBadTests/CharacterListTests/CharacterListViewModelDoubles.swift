@@ -12,9 +12,9 @@ import Combine
 class MockCharacterListNetworkService: CharacterListNetworkServicing {
     func fetchCharacters() -> AnyPublisher<CharactersResponse, Error> {
         let fakeCharacters: CharactersResponse = [
-            .init(id: 1, name: "Walter White", birthday: nil, occupation: nil, img: "google.com", status: nil, nickname: nil, appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
-            .init(id: 2, name: "Jesse Pinkman", birthday: nil, occupation: nil, img: "google.com", status: nil, nickname: nil, appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
-            .init(id: 3, name: "Henry Schrader", birthday: nil, occupation: nil, img: "google.com", status: nil, nickname: nil, appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil)
+            .init(id: 1, name: "Walter White", birthday: "", occupation: nil, img: "google.com", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
+            .init(id: 2, name: "Jesse Pinkman", birthday: "", occupation: nil, img: "google.com", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
+            .init(id: 3, name: "Henry Schrader", birthday: "", occupation: nil, img: "google.com", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil)
         ]
         return Just(fakeCharacters)
             .setFailureType(to: Error.self)

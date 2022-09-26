@@ -11,4 +11,6 @@ struct Character: Identifiable {
     let id: Int
     let name: String
     let imageUrl: URL
+    let nickname: String
+    let birthday: String
 }

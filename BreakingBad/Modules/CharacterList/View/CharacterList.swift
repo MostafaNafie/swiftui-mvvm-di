@@ -15,8 +15,13 @@ struct CharacterList: View {
         NavigationView {
             List() {
                 ForEach($viewModel.filteredCharacters) { character in
-                    CharacterRow(character: character.wrappedValue)
-                        .listRowInsets(EdgeInsets())
+                    NavigationLink {                        CharacterDetails(character: character.wrappedValue)
+
+//                        LandmarkDetail(landmark: landmark)
+                    } label: {
+                        CharacterRow(character: character.wrappedValue)
+                    }
+                    .listRowSeparator(.hidden)
                 }
             }
             .searchable(text: $viewModel.searchQuery, prompt: "Search Characters by Name"
@@ -30,7 +35,6 @@ struct CharacterList: View {
                 viewModel.filterCharacters()
             }
             .navigationTitle("Breaking Bad")
-            .background(.gray.opacity(0.25))
             .listStyle(PlainListStyle())
             .onViewDidLoad {
                 viewModel.fetchCharacters()
