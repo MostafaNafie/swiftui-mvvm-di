@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A37344EE28E20B7400DA7143 /* CharacterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37344ED28E20B7400DA7143 /* CharacterRow.swift */; };
+		A37344F028E2127000DA7143 /* Caption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37344EF28E2127000DA7143 /* Caption.swift */; };
 		A3EC370B28E1AF4900329FF4 /* BreakingBadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EC370A28E1AF4900329FF4 /* BreakingBadApp.swift */; };
 		A3EC370D28E1AF4900329FF4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EC370C28E1AF4900329FF4 /* ContentView.swift */; };
 		A3EC370F28E1AF4A00329FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3EC370E28E1AF4A00329FF4 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A37344ED28E20B7400DA7143 /* CharacterRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRow.swift; sourceTree = "<group>"; };
+		A37344EF28E2127000DA7143 /* Caption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caption.swift; sourceTree = "<group>"; };
 		A3EC370728E1AF4900329FF4 /* BreakingBad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakingBad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EC370A28E1AF4900329FF4 /* BreakingBadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingBadApp.swift; sourceTree = "<group>"; };
 		A3EC370C28E1AF4900329FF4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				A3EC370A28E1AF4900329FF4 /* BreakingBadApp.swift */,
 				A3EC370C28E1AF4900329FF4 /* ContentView.swift */,
+				A37344ED28E20B7400DA7143 /* CharacterRow.swift */,
+				A37344EF28E2127000DA7143 /* Caption.swift */,
 				A3EC370E28E1AF4A00329FF4 /* Assets.xcassets */,
 				A3EC371028E1AF4A00329FF4 /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3EC370D28E1AF4900329FF4 /* ContentView.swift in Sources */,
+				A37344EE28E20B7400DA7143 /* CharacterRow.swift in Sources */,
+				A37344F028E2127000DA7143 /* Caption.swift in Sources */,
 				A3EC370B28E1AF4900329FF4 /* BreakingBadApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
