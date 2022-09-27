@@ -157,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				A373450628E234AC00DA7143 /* Network */,
+				A37344FB28E21C3900DA7143 /* Extensions */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -244,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				A3EC370A28E1AF4900329FF4 /* BreakingBadApp.swift */,
-				A37344FB28E21C3900DA7143 /* Extensions */,
 				A37344F828E219A900DA7143 /* Common */,
 				A37344F528E218DB00DA7143 /* Modules */,
 				A3EC370E28E1AF4A00329FF4 /* Assets.xcassets */,
