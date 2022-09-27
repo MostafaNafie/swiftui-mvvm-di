@@ -15,9 +15,10 @@ struct CharacterList: View {
         NavigationView {
             List() {
                 ForEach($viewModel.filteredCharacters) { character in
-                    NavigationLink {                        CharacterDetails(character: character.wrappedValue)
-
-//                        LandmarkDetail(landmark: landmark)
+                    NavigationLink {
+                        let viewModel = Container.CharacterDetailsContainer.resolve(CharacterDetailsViewModel.self,
+                                                                                    argument: character.wrappedValue)!
+                        CharacterDetails(viewModel: viewModel)
                     } label: {
                         CharacterRow(character: character.wrappedValue)
                     }
