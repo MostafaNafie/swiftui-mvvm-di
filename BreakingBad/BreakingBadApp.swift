@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
-import Swinject
 
 @main
 struct BreakingBadApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var body: some Scene {
         WindowGroup {
-            CharacterList(viewModel: Container.CharactersListContainer.resolve(CharacterListViewModel.self)!)
+            appDelegate.rootView
         }
     }
 }

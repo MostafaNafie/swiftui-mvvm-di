@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Swinject
 
 struct CharacterList: View {
     @ObservedObject private var viewModel: CharacterListViewModel
@@ -16,33 +15,26 @@ struct CharacterList: View {
     }
     
     var body: some View {
-        NavigationView {
-            List() {
-                ForEach($viewModel.filteredCharacters) { character in
-                    NavigationLink {
-                        let viewModel = Container.CharacterDetailsContainer.resolve(CharacterDetailsViewModel.self,
-                                                                                    argument: character.wrappedValue)!
-                        CharacterDetails(viewModel: viewModel)
-                    } label: {
-                        CharacterRow(character: character.wrappedValue)
-                    }
-                    .listRowSeparator(.hidden)
+        List($viewModel.filteredCharacters) { character in
+            CharacterRow(character: character.wrappedValue)
+                .listRowSeparator(.hidden)
+                .onNavigation {
+                    viewModel.open(character.wrappedValue)
                 }
+        }
+        .listStyle(PlainListStyle())
+        .navigationTitle("Breaking Bad")
+        .onViewDidLoad {
+            viewModel.viewDidLoad()
+        }
+        .searchable(text: $viewModel.searchQuery, prompt: "Search Characters by Name") {
+            ForEach($viewModel.filteredCharacters) { character in
+                Text(character.wrappedValue.name)
+                    .searchCompletion(character.wrappedValue.name)
             }
-            .listStyle(PlainListStyle())
-            .navigationTitle("Breaking Bad")
-            .onViewDidLoad {
-                viewModel.viewDidLoad()
-            }
-            .searchable(text: $viewModel.searchQuery, prompt: "Search Characters by Name") {
-                ForEach($viewModel.filteredCharacters) { character in
-                    Text(character.wrappedValue.name)
-                        .searchCompletion(character.wrappedValue.name)
-                }
-            }
-            .onChange(of: viewModel.searchQuery) { query in
-                viewModel.searchQuery = query
-            }
+        }
+        .onChange(of: viewModel.searchQuery) { query in
+            viewModel.searchQuery = query
         }
     }
 }
