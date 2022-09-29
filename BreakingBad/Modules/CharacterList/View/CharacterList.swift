@@ -25,20 +25,19 @@ struct CharacterList: View {
                     .listRowSeparator(.hidden)
                 }
             }
-            .searchable(text: $viewModel.searchQuery, prompt: "Search Characters by Name"
-            ) {
+            .listStyle(PlainListStyle())
+            .navigationTitle("Breaking Bad")
+            .onViewDidLoad {
+                viewModel.viewDidLoad()
+            }
+            .searchable(text: $viewModel.searchQuery, prompt: "Search Characters by Name") {
                 ForEach($viewModel.filteredCharacters) { character in
                     Text(character.wrappedValue.name)
                         .searchCompletion(character.wrappedValue.name)
                 }
             }
-            .onChange(of: viewModel.searchQuery) { _ in
-                viewModel.filterCharacters()
-            }
-            .navigationTitle("Breaking Bad")
-            .listStyle(PlainListStyle())
-            .onViewDidLoad {
-                viewModel.fetchCharacters()
+            .onChange(of: viewModel.searchQuery) { query in
+                viewModel.searchQuery = query
             }
         }
     }

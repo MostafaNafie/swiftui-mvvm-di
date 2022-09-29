@@ -12,16 +12,36 @@ final class CharacterListViewModel: ObservableObject {
     @Published var filteredCharacters: [Character] = []
     @Published var searchQuery: String = ""
     
+    @Published private var characters: [Character] = []
     private let networkService: CharacterListNetworkServicing
-    private var characters: [Character] = []
-    private var cancellable: AnyCancellable? = nil
+    private var cancellables: [AnyCancellable] = []
     
     init(networkService: CharacterListNetworkServicing) {
         self.networkService = networkService
+        setupBindings()
+    }
+    
+    func viewDidLoad() {
+        fetchCharacters()
+    }
+}
+
+private extension CharacterListViewModel {
+    func setupBindings() {
+        $searchQuery
+            .combineLatest($characters)
+            .map { (searchQuery, characters) in
+                characters.filter {
+                    searchQuery.isEmpty ? true : $0.name
+                        .localizedCaseInsensitiveContains(searchQuery)
+                }
+            }
+            .assign(to: &$filteredCharacters)
     }
     
     func fetchCharacters() {
-        self.cancellable = self.networkService.fetchCharacters()
+        networkService.fetchCharacters()
+            .print(#function)
             .map{ charactersResponse in
                 charactersResponse.map {
                     Character(id: $0.id,
@@ -31,21 +51,21 @@ final class CharacterListViewModel: ObservableObject {
                               birthday: $0.birthday)
                 }
             }
-            .sink( receiveCompletion: { [weak self] completion in
+            .sink( receiveCompletion: { completion in
                 switch completion {
                     case .failure:
                         print("Failure")
                     case .finished:
                         print("Success")
                 }
-                self?.cancellable?.cancel()
             }, receiveValue: { value in
                 self.characters = value
                 self.filteredCharacters = value
             })
+            .store(in: &cancellables)
     }
     
-    func filterCharacters() {
+    func searchQueryChanged(_ searchQuery: String) {
         filteredCharacters = characters.filter {
             searchQuery.isEmpty ? true : $0.name
                 .localizedCaseInsensitiveContains(searchQuery)
