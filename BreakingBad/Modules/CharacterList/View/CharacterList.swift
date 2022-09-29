@@ -9,7 +9,11 @@ import SwiftUI
 import Swinject
 
 struct CharacterList: View {
-    @ObservedObject private var viewModel: CharacterListViewModel = Container.CharactersListContainer.resolve(CharacterListViewModel.self)!
+    @ObservedObject private var viewModel: CharacterListViewModel
+    
+    init(viewModel: CharacterListViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationView {
@@ -44,7 +48,8 @@ struct CharacterList: View {
 }
 
 struct CharacterList_Previews: PreviewProvider {
+    static let viewModel = CharacterListViewModel(networkService: PreviewCharacterListNetworkService())
     static var previews: some View {
-        CharacterList()
+        CharacterList(viewModel: viewModel)
     }
 }

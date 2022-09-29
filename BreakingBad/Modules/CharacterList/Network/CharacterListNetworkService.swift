@@ -30,3 +30,16 @@ struct CharacterListNetworkService: CharacterListNetworkServicing {
             .eraseToAnyPublisher()
     }
 }
+
+class PreviewCharacterListNetworkService: CharacterListNetworkServicing {
+    func fetchCharacters() -> AnyPublisher<CharactersResponse, Error> {
+        let fakeCharacters: CharactersResponse = [
+            .init(id: 1, name: "Walter White", birthday: "", occupation: nil, img: "https://vignette.wikia.nocookie.net/breakingbad/images/c/c1/4x11_-_Huell.png/revision/latest?cb=20130913100459&path-prefix=es", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
+            .init(id: 2, name: "Jesse Pinkman", birthday: "", occupation: nil, img: "https://vignette.wikia.nocookie.net/breakingbad/images/c/c1/4x11_-_Huell.png/revision/latest?cb=20130913100459&path-prefix=es", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
+            .init(id: 3, name: "Henry Schrader", birthday: "", occupation: nil, img: "https://vignette.wikia.nocookie.net/breakingbad/images/c/c1/4x11_-_Huell.png/revision/latest?cb=20130913100459&path-prefix=es", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil)
+        ]
+        return Just(fakeCharacters)
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+    }
+}

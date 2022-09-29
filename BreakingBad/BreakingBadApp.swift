@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import Swinject
 
 @main
 struct BreakingBadApp: App {
     var body: some Scene {
         WindowGroup {
-            CharacterList()
+            CharacterList(viewModel: Container.CharactersListContainer.resolve(CharacterListViewModel.self)!)
         }
     }
 }
