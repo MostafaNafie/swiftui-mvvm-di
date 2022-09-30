@@ -8,20 +8,20 @@
 import Combine
 import Foundation
 
-protocol CharacterCoordinating: AnyObject {
+public protocol CharacterCoordinating: AnyObject {
     func open(_ character: Character)
 }
 
-final class CharacterListViewModel: ObservableObject {
+public final class CharacterListViewModel: ObservableObject {
     @Published var filteredCharacters: [Character] = []
     @Published var searchQuery: String = ""
     
     @Published private var characters: [Character] = []
     private let networkService: CharacterListNetworkServicing
     private let coordinator: CharacterCoordinating?
-    private var cancellables: [AnyCancellable] = []
+    private var cancellables: Set<AnyCancellable> = []
     
-    init(networkService: CharacterListNetworkServicing,
+    public init(networkService: CharacterListNetworkServicing,
          coordinator: CharacterCoordinating? = nil) {
         self.networkService = networkService
         self.coordinator = coordinator

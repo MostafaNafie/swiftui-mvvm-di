@@ -7,11 +7,16 @@
 
 import SwiftUI
 import Kingfisher
+import CharacterList
 
-struct CharacterDetails: View {
+public struct CharacterDetails: View {
     @ObservedObject var viewModel: CharacterDetailsViewModel
     
-    var body: some View {
+    public init(viewModel: CharacterDetailsViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    public var body: some View {
         ScrollView {
             KFImage(viewModel.character.imageUrl)
                 .resizable()

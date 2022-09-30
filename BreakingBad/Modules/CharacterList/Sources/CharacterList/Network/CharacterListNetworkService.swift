@@ -7,21 +7,22 @@
 
 import Combine
 import Foundation
+import NetworkingInterface
 
-protocol CharacterListNetworkServicing {
+public protocol CharacterListNetworkServicing {
     typealias CharactersResponse = [CharactersNetwork.Character]
 
     func fetchCharacters() -> AnyPublisher<CharactersResponse, Error>
 }
 
-struct CharacterListNetworkService: CharacterListNetworkServicing {
+public struct CharacterListNetworkService: CharacterListNetworkServicing {
     private let client: HTTPClient
     
-    init(client: HTTPClient) {
+    public init(client: HTTPClient) {
         self.client = client
     }
     
-    func fetchCharacters() -> AnyPublisher<CharactersResponse, Error> {
+    public func fetchCharacters() -> AnyPublisher<CharactersResponse, Error> {
         let urlString = "https://breakingbadapi.com/api/characters"
         let url = URL(string: urlString)
         

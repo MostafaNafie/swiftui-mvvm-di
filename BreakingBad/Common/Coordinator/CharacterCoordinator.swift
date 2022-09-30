@@ -7,6 +7,8 @@
 
 import SwiftUI
 import Swinject
+import CharacterList
+import CharacterDetails
 
 class CharacterCoordinator: ObservableObject, Identifiable, CharacterCoordinating {
     @Published var viewModel: CharacterListViewModel?

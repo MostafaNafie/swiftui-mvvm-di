@@ -6,6 +6,8 @@
 //
 
 import Swinject
+import CharacterList
+import NetworkingInterface
 
 extension Container {
     static let CharactersListContainer: Container = {

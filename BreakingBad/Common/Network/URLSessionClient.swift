@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import NetworkingInterface
 
 struct URLSessionClient: HTTPClient {
     func perform<T: Decodable>(_ request: URLRequest) -> AnyPublisher<HttpResponse<T>, Error> {

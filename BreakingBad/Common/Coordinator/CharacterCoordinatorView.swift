@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import CharacterList
+import CharacterDetails
 
 struct CharacterCoordinatorView: View {
     @ObservedObject var coordinator: CharacterCoordinator

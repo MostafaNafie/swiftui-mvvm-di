@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct CharacterList: View {
+public struct CharacterList: View {
     @ObservedObject private var viewModel: CharacterListViewModel
     
-    init(viewModel: CharacterListViewModel) {
+    public init(viewModel: CharacterListViewModel) {
         self.viewModel = viewModel
     }
     
-    var body: some View {
+    public var body: some View {
         List($viewModel.filteredCharacters) { character in
             CharacterRow(character: character.wrappedValue)
                 .listRowSeparator(.hidden)

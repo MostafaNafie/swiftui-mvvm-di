@@ -8,7 +8,7 @@
 import Swinject
 
 extension Container {
-    static let CharacterDetailsContainer: Container = {
+    public static let CharacterDetailsContainer: Container = {
         let container = Container()
         container.register(CharacterDetailsViewModel.self) { _, character in
             CharacterDetailsViewModel(character: character)

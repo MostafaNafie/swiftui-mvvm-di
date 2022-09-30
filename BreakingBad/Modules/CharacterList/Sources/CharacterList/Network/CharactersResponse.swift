@@ -8,8 +8,8 @@
 import Foundation
 
 // MARK: - Character
-enum CharactersNetwork {
-    struct Character: Codable {
+public enum CharactersNetwork {
+    public struct Character: Codable {
         let id: Int
         let name: String
         let birthday: String
