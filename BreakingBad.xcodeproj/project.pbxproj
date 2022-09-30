@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A324610328E732570073E7D8 /* CharacterModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CharacterModels; path = ../Common/CharacterModels; sourceTree = "<group>"; };
 		A3413BB828E7244D003F1CC1 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Utilities; path = BreakingBad/Common/Utilities; sourceTree = "<group>"; };
 		A373451828E23EC500DA7143 /* BreakingBadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakingBadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A373451A28E23EC500DA7143 /* CharacterListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModelTests.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		A37344F528E218DB00DA7143 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A324610328E732570073E7D8 /* CharacterModels */,
 				A3EE3D8128E70D0C004AD9B7 /* CharacterList */,
 				A3EE3D8228E70D1D004AD9B7 /* CharacterDetails */,
 			);
@@ -89,16 +91,8 @@
 			children = (
 				A395D71B28E5C384002F719C /* DI */,
 				A395D71A28E5C0C2002F719C /* Coordinator */,
-				A373450628E234AC00DA7143 /* Network */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		A373450628E234AC00DA7143 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		A373451928E23EC500DA7143 /* BreakingBadTests */ = {

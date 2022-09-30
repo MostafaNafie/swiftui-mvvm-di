@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import CharacterModels
 
 struct CharacterRow: View {
     let character: Character

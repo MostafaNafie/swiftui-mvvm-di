@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CharacterList
+import CharacterModels
 
 public final class CharacterDetailsViewModel: ObservableObject {
     @Published var character: Character

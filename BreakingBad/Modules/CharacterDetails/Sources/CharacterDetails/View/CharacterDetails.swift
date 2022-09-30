@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Kingfisher
-import CharacterList
+import CharacterModels
 
 public struct CharacterDetails: View {
     @ObservedObject var viewModel: CharacterDetailsViewModel

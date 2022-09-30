@@ -9,6 +9,7 @@ import SwiftUI
 import Swinject
 import CharacterList
 import CharacterDetails
+import CharacterModels
 
 class CharacterCoordinator: ObservableObject, Identifiable, CharacterCoordinating {
     @Published var viewModel: CharacterListViewModel?

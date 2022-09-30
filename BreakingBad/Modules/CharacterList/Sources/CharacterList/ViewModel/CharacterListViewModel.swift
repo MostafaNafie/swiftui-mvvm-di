@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import CharacterModels
 
 public protocol CharacterCoordinating: AnyObject {
     func open(_ character: Character)

@@ -1,8 +1,8 @@
 //
-//  CharactersListViewModelData.swift
+//  CharacterModels.swift
 //  BreakingBad
 //
-//  Created by Mostafa Nafie on 26/09/2022.
+//  Created by Mostafa Nafie on 30/09/2022.
 //
 
 import Foundation
