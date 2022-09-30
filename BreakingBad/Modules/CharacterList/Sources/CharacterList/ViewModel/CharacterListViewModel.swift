@@ -66,8 +66,8 @@ private extension CharacterListViewModel {
             }
             .sink( receiveCompletion: { completion in
                 switch completion {
-                    case .failure:
-                        print("Failure")
+                    case .failure(let error):
+                        print("Failure: \(error.localizedDescription)")
                     case .finished:
                         print("Success")
                 }

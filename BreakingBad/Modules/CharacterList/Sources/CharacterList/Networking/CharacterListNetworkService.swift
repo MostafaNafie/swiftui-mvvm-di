@@ -23,10 +23,8 @@ public struct CharacterListNetworkService: CharacterListNetworkServicing {
     }
     
     public func fetchCharacters() -> AnyPublisher<CharactersResponse, Error> {
-        let urlString = "https://breakingbadapi.com/api/characters"
-        let url = URL(string: urlString)
-        
-        return client.perform(URLRequest(url: url!))
+        let request = CharactersRequest().buildURLRequest()
+        return client.perform(request)
             .map(\.value)
             .eraseToAnyPublisher()
     }
