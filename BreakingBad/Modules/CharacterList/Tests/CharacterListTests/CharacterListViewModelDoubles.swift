@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-@testable import BreakingBad
+@testable import CharacterList
 
 class MockCharacterListNetworkService: CharacterListNetworkServicing {
     func fetchCharacters() -> AnyPublisher<CharactersResponse, Error> {

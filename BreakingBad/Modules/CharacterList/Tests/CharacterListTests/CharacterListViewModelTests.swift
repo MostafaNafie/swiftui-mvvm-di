@@ -7,7 +7,7 @@
 
 import XCTest
 import SwiftUI
-@testable import BreakingBad
+@testable import CharacterList
 
 class CharacterListViewModelTests: XCTestCase {
     let mockNetworkService: CharacterListNetworkServicing = MockCharacterListNetworkService()
