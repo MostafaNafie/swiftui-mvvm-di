@@ -6,6 +6,7 @@
 //
 
 import Swinject
+import CharacterDetails
 
 extension Container {
     public static let CharacterDetailsContainer: Container = {
