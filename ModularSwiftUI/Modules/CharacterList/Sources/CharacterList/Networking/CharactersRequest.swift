@@ -9,6 +9,6 @@ import Foundation
 import NetworkingInterface
 
 struct CharactersRequest: NetworkingRequest {
-  var path: String { "/characters" }
+  var path: String { "/BreakingBadCharacters" }
   var headers: [String: String] = [:]
 }
