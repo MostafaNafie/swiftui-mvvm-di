@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Utilities
 
 public struct CharacterList: View {
     @ObservedObject private var viewModel: CharacterListViewModel

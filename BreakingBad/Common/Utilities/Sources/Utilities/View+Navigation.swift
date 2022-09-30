@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
 
     func onNavigation(_ action: @escaping () -> Void) -> some View {
         let isActive = Binding(
