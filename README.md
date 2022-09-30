@@ -4,6 +4,9 @@ Light | Dark
 :-: | :-:
 <video src='https://user-images.githubusercontent.com/48848704/192512927-b863b139-76b1-4874-94f8-9f89b4f4a0fb.mp4' width=90% controls autoplay> | <video src='https://user-images.githubusercontent.com/48848704/192513719-5282e547-2be8-4d3f-b51d-09de76d95b50.mp4' width=90% controls autoplay>
 
+## High-level Design
+<img src="https://user-images.githubusercontent.com/48848704/193288049-8af5ae54-cd2a-4541-9ccb-f43b656a3786.png">
+
 ## Requirements:
 ### Functional:
 - Fetching and parsing data from API.
@@ -31,6 +34,8 @@ Light | Dark
 - Principals and Patterns:
   - Utilizing IoC and DI.
   - Coordinator pattern for navigation.
+
+- Features are separated into modules.
 
 - Dependency Manager:
   - Swift Package Manager
