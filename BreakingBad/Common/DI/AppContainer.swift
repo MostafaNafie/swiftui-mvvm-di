@@ -8,6 +8,7 @@
 import Swinject
 import CharacterList
 import NetworkingInterface
+import Networking
 
 extension Container {
     static let AppContainer: Container = {

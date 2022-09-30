@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A373450A28E234E000DA7143 /* URLSessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373450928E234E000DA7143 /* URLSessionClient.swift */; };
+		A346D45F28E72E1C004AEF78 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = A346D45E28E72E1C004AEF78 /* Networking */; };
 		A373451B28E23EC500DA7143 /* CharacterListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373451A28E23EC500DA7143 /* CharacterListViewModelTests.swift */; };
 		A373452328E2406700DA7143 /* CharacterListViewModelDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A373452228E2406700DA7143 /* CharacterListViewModelDoubles.swift */; };
 		A395D71528E5B445002F719C /* CharacterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395D71428E5B445002F719C /* CharacterCoordinator.swift */; };
 		A395D71728E5B5F9002F719C /* CharacterCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395D71628E5B5F9002F719C /* CharacterCoordinatorView.swift */; };
 		A395D71D28E5C39C002F719C /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395D71C28E5C39C002F719C /* AppContainer.swift */; };
 		A395D71F28E5CDA4002F719C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A395D71E28E5CDA4002F719C /* AppDelegate.swift */; };
+		A3AF32CB28E72E9200E6445E /* NetworkingInterface in Frameworks */ = {isa = PBXBuildFile; productRef = A3AF32CA28E72E9200E6445E /* NetworkingInterface */; };
 		A3CA7F7028E6EE95008DF69B /* CharactersListContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CA7F6F28E6EE95008DF69B /* CharactersListContainer.swift */; };
 		A3EC370B28E1AF4900329FF4 /* BreakingBadApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EC370A28E1AF4900329FF4 /* BreakingBadApp.swift */; };
 		A3EC370F28E1AF4A00329FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3EC370E28E1AF4A00329FF4 /* Assets.xcassets */; };
 		A3EC371228E1AF4A00329FF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3EC371128E1AF4A00329FF4 /* Preview Assets.xcassets */; };
 		A3EE3D8428E70D97004AD9B7 /* CharacterDetails in Frameworks */ = {isa = PBXBuildFile; productRef = A3EE3D8328E70D97004AD9B7 /* CharacterDetails */; };
 		A3EE3D8628E70D9A004AD9B7 /* CharacterList in Frameworks */ = {isa = PBXBuildFile; productRef = A3EE3D8528E70D9A004AD9B7 /* CharacterList */; };
-		A3EE3D8828E70D9D004AD9B7 /* NetworkingInterface in Frameworks */ = {isa = PBXBuildFile; productRef = A3EE3D8728E70D9D004AD9B7 /* NetworkingInterface */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +35,6 @@
 
 /* Begin PBXFileReference section */
 		A3413BB828E7244D003F1CC1 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Utilities; path = BreakingBad/Common/Utilities; sourceTree = "<group>"; };
-		A373450928E234E000DA7143 /* URLSessionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClient.swift; sourceTree = "<group>"; };
 		A373451828E23EC500DA7143 /* BreakingBadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakingBadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A373451A28E23EC500DA7143 /* CharacterListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModelTests.swift; sourceTree = "<group>"; };
 		A373452228E2406700DA7143 /* CharacterListViewModelDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModelDoubles.swift; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		A395D71628E5B5F9002F719C /* CharacterCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCoordinatorView.swift; sourceTree = "<group>"; };
 		A395D71C28E5C39C002F719C /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		A395D71E28E5CDA4002F719C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A3AB78E328E72CDE00FD3C44 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Networking; path = BreakingBad/Common/Networking; sourceTree = "<group>"; };
 		A3CA7F6F28E6EE95008DF69B /* CharactersListContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListContainer.swift; sourceTree = "<group>"; };
 		A3EC370728E1AF4900329FF4 /* BreakingBad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakingBad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EC370A28E1AF4900329FF4 /* BreakingBadApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakingBadApp.swift; sourceTree = "<group>"; };
@@ -65,7 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3EE3D8828E70D9D004AD9B7 /* NetworkingInterface in Frameworks */,
+				A3AF32CB28E72E9200E6445E /* NetworkingInterface in Frameworks */,
+				A346D45F28E72E1C004AEF78 /* Networking in Frameworks */,
 				A3EE3D8628E70D9A004AD9B7 /* CharacterList in Frameworks */,
 				A3EE3D8428E70D97004AD9B7 /* CharacterDetails in Frameworks */,
 			);
@@ -96,7 +97,6 @@
 		A373450628E234AC00DA7143 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A373450928E234E000DA7143 /* URLSessionClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -187,8 +187,9 @@
 		A3EE3D7F28E70CFF004AD9B7 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				A3413BB828E7244D003F1CC1 /* Utilities */,
 				A3EE3D8028E70CFF004AD9B7 /* NetworkingInterface */,
+				A3AB78E328E72CDE00FD3C44 /* Networking */,
+				A3413BB828E7244D003F1CC1 /* Utilities */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -230,7 +231,8 @@
 			packageProductDependencies = (
 				A3EE3D8328E70D97004AD9B7 /* CharacterDetails */,
 				A3EE3D8528E70D9A004AD9B7 /* CharacterList */,
-				A3EE3D8728E70D9D004AD9B7 /* NetworkingInterface */,
+				A346D45E28E72E1C004AEF78 /* Networking */,
+				A3AF32CA28E72E9200E6445E /* NetworkingInterface */,
 			);
 			productName = BreakingBad;
 			productReference = A3EC370728E1AF4900329FF4 /* BreakingBad.app */;
@@ -311,7 +313,6 @@
 			files = (
 				A395D71F28E5CDA4002F719C /* AppDelegate.swift in Sources */,
 				A395D71528E5B445002F719C /* CharacterCoordinator.swift in Sources */,
-				A373450A28E234E000DA7143 /* URLSessionClient.swift in Sources */,
 				A395D71728E5B5F9002F719C /* CharacterCoordinatorView.swift in Sources */,
 				A3EC370B28E1AF4900329FF4 /* BreakingBadApp.swift in Sources */,
 				A3CA7F7028E6EE95008DF69B /* CharactersListContainer.swift in Sources */,
@@ -583,6 +584,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A346D45E28E72E1C004AEF78 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+		A3AF32CA28E72E9200E6445E /* NetworkingInterface */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkingInterface;
+		};
 		A3EE3D8328E70D97004AD9B7 /* CharacterDetails */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CharacterDetails;
@@ -590,10 +599,6 @@
 		A3EE3D8528E70D9A004AD9B7 /* CharacterList */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CharacterList;
-		};
-		A3EE3D8728E70D9D004AD9B7 /* NetworkingInterface */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = NetworkingInterface;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
