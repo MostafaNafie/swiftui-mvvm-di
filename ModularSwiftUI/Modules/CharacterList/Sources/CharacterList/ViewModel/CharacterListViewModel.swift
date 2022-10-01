@@ -57,10 +57,10 @@ private extension CharacterListViewModel {
     func fetchCharacters() {
         characterListUseCase
             .fetchCharacters()
-            .sink( receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
                 switch completion {
                     case .failure(let error):
-                        self.error = error
+                        self?.error = error
                     case .finished:
                         print("Success: \(#function)")
                 }

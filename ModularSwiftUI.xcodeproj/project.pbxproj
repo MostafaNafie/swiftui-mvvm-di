@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A324610328E732570073E7D8 /* CharacterModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CharacterModels; path = ../Common/CharacterModels; sourceTree = "<group>"; };
+		A324610328E732570073E7D8 /* CharacterModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CharacterModels; sourceTree = "<group>"; };
 		A3413BB828E7244D003F1CC1 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Utilities; path = ModularSwiftUI/Common/Utilities; sourceTree = "<group>"; };
 		A373451828E23EC500DA7143 /* ModularSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModularSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A389C47028E7536D00567CFE /* CharacterDetailsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsContainer.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		A3EC370A28E1AF4900329FF4 /* ModularSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularSwiftUIApp.swift; sourceTree = "<group>"; };
 		A3EC370E28E1AF4A00329FF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3EC371128E1AF4A00329FF4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A3EE3D8028E70CFF004AD9B7 /* NetworkingInterface */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkingInterface; path = ModularSwiftUI/Common/Network/NetworkingInterface; sourceTree = "<group>"; };
+		A3EE3D8028E70CFF004AD9B7 /* NetworkingInterface */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkingInterface; path = ModularSwiftUI/Common/NetworkingInterface; sourceTree = "<group>"; };
 		A3EE3D8128E70D0C004AD9B7 /* CharacterList */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CharacterList; sourceTree = "<group>"; };
 		A3EE3D8228E70D1D004AD9B7 /* CharacterDetails */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CharacterDetails; sourceTree = "<group>"; };
 /* End PBXFileReference section */
