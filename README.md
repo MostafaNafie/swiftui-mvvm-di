@@ -32,10 +32,12 @@ Light | Dark
   - MVVM Architecture
 
 - Principals and Patterns:
+  - SOLID conformance:
+    - Features are separated into modules.
+    - UseCases for business logic.
   - Utilizing IoC and DI.
   - Coordinator pattern for navigation.
 
-- Features are separated into modules.
 
 - Dependency Manager:
   - Swift Package Manager
