@@ -37,6 +37,7 @@ public struct CharacterList: View {
         .onChange(of: viewModel.searchQuery) { query in
             viewModel.searchQuery = query
         }
+        .errorAlert(error: $viewModel.error)
     }
 }
 

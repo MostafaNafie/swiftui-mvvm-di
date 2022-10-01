@@ -16,6 +16,7 @@ public protocol CharacterCoordinating: AnyObject {
 public final class CharacterListViewModel: ObservableObject {
     @Published var filteredCharacters: [Character] = []
     @Published var searchQuery: String = ""
+    @Published var error: Error?
     
     @Published private var characters: [Character] = []
     private let characterListUseCase: CharacterListUseCase
@@ -42,6 +43,7 @@ public final class CharacterListViewModel: ObservableObject {
 private extension CharacterListViewModel {
     func setupBindings() {
         $searchQuery
+            .print("SearchQuery")
             .combineLatest($characters)
             .map { (searchQuery, characters) in
                 characters.filter {
@@ -58,7 +60,7 @@ private extension CharacterListViewModel {
             .sink( receiveCompletion: { completion in
                 switch completion {
                     case .failure(let error):
-                        print("Failure: \(error.localizedDescription)")
+                        self.error = error
                     case .finished:
                         print("Success: \(#function)")
                 }
@@ -66,12 +68,5 @@ private extension CharacterListViewModel {
                 self?.characters = value
             })
             .store(in: &cancellables)
-    }
-    
-    func searchQueryChanged(_ searchQuery: String) {
-        filteredCharacters = characters.filter {
-            searchQuery.isEmpty ? true : $0.name
-                .localizedCaseInsensitiveContains(searchQuery)
-        }
     }
 }
