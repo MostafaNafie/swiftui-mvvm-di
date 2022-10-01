@@ -15,8 +15,11 @@ extension Container {
         container.register(CharacterListNetworkServicing.self, factory: { resolver in
             CharacterListNetworkService(client: resolver.resolve(HTTPClient.self)!)
         })
+        container.register(CharacterListUseCase.self, factory: { resolver in
+            CharacterListUseCase(networkService: resolver.resolve(CharacterListNetworkServicing.self)!)
+        })
         container.register(CharacterListViewModel.self, factory: {resolver in
-            CharacterListViewModel(networkService: resolver.resolve(CharacterListNetworkServicing.self)!,
+            CharacterListViewModel(characterListUseCase: resolver.resolve(CharacterListUseCase.self)!,
                                    coordinator: resolver.resolve(CharacterCoordinating.self))
             
         })

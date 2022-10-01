@@ -41,7 +41,7 @@ public struct CharacterList: View {
 }
 
 struct CharacterList_Previews: PreviewProvider {
-    static let viewModel = CharacterListViewModel(networkService: PreviewCharacterListNetworkService())
+    static let viewModel = CharacterListViewModel(characterListUseCase: .init(networkService: PreviewCharacterListNetworkService()))
     static var previews: some View {
         CharacterList(viewModel: viewModel)
     }

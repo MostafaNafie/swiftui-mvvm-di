@@ -18,13 +18,13 @@ public final class CharacterListViewModel: ObservableObject {
     @Published var searchQuery: String = ""
     
     @Published private var characters: [Character] = []
-    private let networkService: CharacterListNetworkServicing
+    private let characterListUseCase: CharacterListUseCase
     private let coordinator: CharacterCoordinating?
     private var cancellables: Set<AnyCancellable> = []
     
-    public init(networkService: CharacterListNetworkServicing,
+    public init(characterListUseCase: CharacterListUseCase,
          coordinator: CharacterCoordinating? = nil) {
-        self.networkService = networkService
+        self.characterListUseCase = characterListUseCase
         self.coordinator = coordinator
         
         setupBindings()
@@ -53,27 +53,17 @@ private extension CharacterListViewModel {
     }
     
     func fetchCharacters() {
-        networkService.fetchCharacters()
-            .print(#function)
-            .map{ charactersResponse in
-                charactersResponse.map {
-                    Character(id: $0.id,
-                              name: $0.name,
-                              imageUrl: URL(string: $0.img)!,
-                              nickname: $0.nickname,
-                              birthday: $0.birthday)
-                }
-            }
+        characterListUseCase
+            .fetchCharacters()
             .sink( receiveCompletion: { completion in
                 switch completion {
                     case .failure(let error):
                         print("Failure: \(error.localizedDescription)")
                     case .finished:
-                        print("Success")
+                        print("Success: \(#function)")
                 }
-            }, receiveValue: { value in
-                self.characters = value
-                self.filteredCharacters = value
+            }, receiveValue: { [weak self] value in
+                self?.characters = value
             })
             .store(in: &cancellables)
     }

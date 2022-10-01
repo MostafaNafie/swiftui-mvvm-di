@@ -10,11 +10,11 @@ import SwiftUI
 @testable import CharacterList
 
 class CharacterListViewModelTests: XCTestCase {
-    let mockNetworkService: CharacterListNetworkServicing = MockCharacterListNetworkService()
-    var sut: CharacterListViewModel!
+    private let characterListUseCase = CharacterListUseCase(networkService: MockCharacterListNetworkService())
+    private var sut: CharacterListViewModel!
     
     override func setUp() {
-        self.sut = CharacterListViewModel(networkService: mockNetworkService)
+        self.sut = CharacterListViewModel(characterListUseCase: characterListUseCase)
     }
     
     override func tearDown() {
