@@ -6,14 +6,16 @@
 //
 
 import SwiftUI
+import Observation
 import Swinject
 import CharacterList
 import CharacterDetails
 import CharacterModels
 
-class CharacterCoordinator: ObservableObject, Identifiable, CharacterCoordinating {
-    @Published var viewModel: CharacterListViewModel?
-    @Published var detailViewModel: CharacterDetailsViewModel?
+@Observable
+class CharacterCoordinator: Identifiable, CharacterCoordinating {
+    var viewModel: CharacterListViewModel? = nil
+    var detailViewModel: CharacterDetailsViewModel? = nil
     
     func start() {
         viewModel = Container.CharactersListContainer.resolve(CharacterListViewModel.self)!

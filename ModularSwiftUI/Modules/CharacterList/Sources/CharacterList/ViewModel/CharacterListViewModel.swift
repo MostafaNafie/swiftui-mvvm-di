@@ -6,19 +6,20 @@
 //
 
 import Combine
-import Foundation
+import Observation
 import CharacterModels
 
 public protocol CharacterCoordinating: AnyObject {
     func open(_ character: Character)
 }
 
+@Observable
 public final class CharacterListViewModel: ObservableObject {
-    @Published var filteredCharacters: [Character] = []
-    @Published var searchQuery: String = ""
-    @Published var error: Error?
-    
-    @Published private var characters: [Character] = []
+    var filteredCharacters: [Character] = []
+    var searchQuery: String = ""
+    var error: Error? = nil
+
+    private var characters: [Character] = []
     private let characterListUseCase: CharacterListUseCase
     private let coordinator: CharacterCoordinating?
     private var cancellables: Set<AnyCancellable> = []
@@ -27,8 +28,6 @@ public final class CharacterListViewModel: ObservableObject {
          coordinator: CharacterCoordinating? = nil) {
         self.characterListUseCase = characterListUseCase
         self.coordinator = coordinator
-        
-        setupBindings()
     }
     
     func viewDidLoad() {
@@ -38,22 +37,16 @@ public final class CharacterListViewModel: ObservableObject {
     func open(_ character: Character) {
         coordinator?.open(character)
     }
+
+    func reloadCharacters() {
+        filteredCharacters = characters.filter {
+          searchQuery.isEmpty ? true : $0.name
+            .localizedCaseInsensitiveContains(searchQuery)
+        }
+    }
 }
 
 private extension CharacterListViewModel {
-    func setupBindings() {
-        $searchQuery
-            .print("SearchQuery")
-            .combineLatest($characters)
-            .map { (searchQuery, characters) in
-                characters.filter {
-                    searchQuery.isEmpty ? true : $0.name
-                        .localizedCaseInsensitiveContains(searchQuery)
-                }
-            }
-            .assign(to: &$filteredCharacters)
-    }
-    
     func fetchCharacters() {
         characterListUseCase
             .fetchCharacters()
@@ -65,7 +58,9 @@ private extension CharacterListViewModel {
                         print("Success: \(#function)")
                 }
             }, receiveValue: { [weak self] value in
-                self?.characters = value
+                guard let self else { return }
+                characters = value
+                reloadCharacters()
             })
             .store(in: &cancellables)
     }

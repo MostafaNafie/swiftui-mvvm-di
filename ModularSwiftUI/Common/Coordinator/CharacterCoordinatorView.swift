@@ -10,7 +10,7 @@ import CharacterList
 import CharacterDetails
 
 struct CharacterCoordinatorView: View {
-    @ObservedObject var coordinator: CharacterCoordinator
+    @Bindable var coordinator: CharacterCoordinator
 
     var body: some View {
         NavigationView {

@@ -9,8 +9,8 @@ import SwiftUI
 import Utilities
 
 public struct CharacterList: View {
-    @ObservedObject private var viewModel: CharacterListViewModel
-    
+    @Bindable private var viewModel: CharacterListViewModel
+
     public init(viewModel: CharacterListViewModel) {
         self.viewModel = viewModel
     }
@@ -28,14 +28,9 @@ public struct CharacterList: View {
         .onViewDidLoad {
             viewModel.viewDidLoad()
         }
-        .searchable(text: $viewModel.searchQuery, prompt: "Search Characters by Name") {
-            ForEach($viewModel.filteredCharacters) { character in
-                Text(character.wrappedValue.name)
-                    .searchCompletion(character.wrappedValue.name)
-            }
-        }
-        .onChange(of: viewModel.searchQuery) { query in
-            viewModel.searchQuery = query
+        .searchable(text: $viewModel.searchQuery, prompt: "Search Characters by Name")
+        .onChange(of: viewModel.searchQuery) { _, query in
+            viewModel.reloadCharacters()
         }
         .errorAlert(error: $viewModel.error)
     }

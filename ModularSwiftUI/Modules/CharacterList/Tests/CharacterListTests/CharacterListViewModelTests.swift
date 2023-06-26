@@ -55,7 +55,8 @@ class CharacterListViewModelTests: XCTestCase {
         XCTAssertEqual(expectedValue, actualValue)
         
         sut.searchQuery = "jesse"
-        
+        sut.reloadCharacters()
+
         expectedValue = "Jesse Pinkman"
         actualValue = sut.filteredCharacters.first?.name
         XCTAssertEqual(expectedValue, actualValue)
@@ -64,13 +65,15 @@ class CharacterListViewModelTests: XCTestCase {
     func test_returns_correct_unfiltered_characters_after_reset() {
         sut.viewDidLoad()
         sut.searchQuery = "wh"
-        
+        sut.reloadCharacters()
+
         var expectedValue = 1
         var actualValue = sut.filteredCharacters.count
         XCTAssertEqual(expectedValue, actualValue)
         
         sut.searchQuery = ""
-        
+        sut.reloadCharacters()
+
         expectedValue = 3
         actualValue = sut.filteredCharacters.count
         XCTAssertEqual(expectedValue, actualValue)

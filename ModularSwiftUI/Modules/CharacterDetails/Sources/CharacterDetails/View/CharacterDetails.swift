@@ -10,8 +10,8 @@ import Kingfisher
 import CharacterModels
 
 public struct CharacterDetails: View {
-    @ObservedObject var viewModel: CharacterDetailsViewModel
-    
+    @Bindable var viewModel: CharacterDetailsViewModel
+
     public init(viewModel: CharacterDetailsViewModel) {
         self.viewModel = viewModel
     }
