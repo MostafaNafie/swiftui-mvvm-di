@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "546F9224-AE36-4555-AB18-D3488CBE9EA9",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "CharacterListTests",
+        "name" : "CharacterListTests"
+      }
+    }
+  ],
+  "version" : 1
+}

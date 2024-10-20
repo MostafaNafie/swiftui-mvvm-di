@@ -10,7 +10,7 @@ import Observation
 import Swinject
 import CharacterList
 import CharacterDetails
-import CharacterModels
+import Models
 
 @Observable
 class CharacterCoordinator: Identifiable, CharacterCoordinating {
