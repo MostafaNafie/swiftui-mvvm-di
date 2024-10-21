@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D3B3A362CC50E9600CAF784 /* Modules in Frameworks */ = {isa = PBXBuildFile; productRef = 5D3B3A352CC50E9600CAF784 /* Modules */; };
+		5D45DCC62CC653B7001B411C /* ModularSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5D45DCC52CC653B7001B411C /* ModularSwiftUI */; };
 		A3EC370B28E1AF4900329FF4 /* ModularSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EC370A28E1AF4900329FF4 /* ModularSwiftUIApp.swift */; };
 		A3EC370F28E1AF4A00329FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3EC370E28E1AF4A00329FF4 /* Assets.xcassets */; };
 		A3EC371228E1AF4A00329FF4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3EC371128E1AF4A00329FF4 /* Preview Assets.xcassets */; };
@@ -24,8 +24,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5D3B3A342CC50E6600CAF784 /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
-		5D58437D2CC541A600CF446F /* Modules.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Modules.xctestplan; sourceTree = "<group>"; };
+		5D45DCC42CC653B1001B411C /* ModularSwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ModularSwiftUI; sourceTree = "<group>"; };
+		5D58437D2CC541A600CF446F /* ModularSwiftUI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ModularSwiftUI.xctestplan; sourceTree = "<group>"; };
 		A373451828E23EC500DA7143 /* ModularSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModularSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EC370728E1AF4900329FF4 /* ModularSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModularSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3EC370A28E1AF4900329FF4 /* ModularSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularSwiftUIApp.swift; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D3B3A362CC50E9600CAF784 /* Modules in Frameworks */,
+				5D45DCC62CC653B7001B411C /* ModularSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +62,7 @@
 		A3EC36FE28E1AF4900329FF4 = {
 			isa = PBXGroup;
 			children = (
-				5D58437D2CC541A600CF446F /* Modules.xctestplan */,
+				5D58437D2CC541A600CF446F /* ModularSwiftUI.xctestplan */,
 				A3EC370928E1AF4900329FF4 /* ModularSwiftUI */,
 				A3EC370828E1AF4900329FF4 /* Products */,
 				A3CA7F6C28E6EB94008DF69B /* Frameworks */,
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				A3EC370A28E1AF4900329FF4 /* ModularSwiftUIApp.swift */,
-				5D3B3A342CC50E6600CAF784 /* Modules */,
+				5D45DCC42CC653B1001B411C /* ModularSwiftUI */,
 				A3EC370E28E1AF4A00329FF4 /* Assets.xcassets */,
 				A3EC371028E1AF4A00329FF4 /* Preview Content */,
 			);
@@ -132,7 +132,7 @@
 			);
 			name = ModularSwiftUI;
 			packageProductDependencies = (
-				5D3B3A352CC50E9600CAF784 /* Modules */,
+				5D45DCC52CC653B7001B411C /* ModularSwiftUI */,
 			);
 			productName = ModularSwiftUI;
 			productReference = A3EC370728E1AF4900329FF4 /* ModularSwiftUI.app */;
@@ -481,9 +481,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D3B3A352CC50E9600CAF784 /* Modules */ = {
+		5D45DCC52CC653B7001B411C /* ModularSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Modules;
+			productName = ModularSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
