@@ -10,11 +10,10 @@ import Observation
 import Models
 
 public protocol CharacterCoordinating: AnyObject {
+    func start()
     func open(_ character: Character)
 }
 
-// Migrating to Observable
-// https://useyourloaf.com/blog/migrating-to-observable/
 @Observable
 public final class CharacterListViewModel: ObservableObject {
     var filteredCharacters: [Character] = []

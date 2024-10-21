@@ -10,7 +10,7 @@ import Models
 
 @Observable
 public final class CharacterDetailsViewModel {
-    var character: Character = .init(id: 0, name: "", imageUrl: .init(string: "google.com")!, nickname: "", birthday: "")
+    var character: Character
 
     public init(character: Character) {
         self.character = character

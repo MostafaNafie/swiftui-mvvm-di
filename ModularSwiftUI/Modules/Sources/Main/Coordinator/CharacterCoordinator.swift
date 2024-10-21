@@ -16,13 +16,26 @@ import Models
 class CharacterCoordinator: Identifiable, CharacterCoordinating {
     var viewModel: CharacterListViewModel? = nil
     var detailViewModel: CharacterDetailsViewModel? = nil
-    
+
+    init() {
+        registerDependencies()
+    }
+
     func start() {
-        viewModel = Container.CharactersListContainer.resolve(CharacterListViewModel.self)!
+        viewModel = Container.shared.resolve(CharacterListViewModel.self)!
     }
 
     func open(_ character: Character) {
-        detailViewModel = Container.CharacterDetailsContainer.resolve(CharacterDetailsViewModel.self,
-                                                                      argument: character)
+        detailViewModel = Container.shared.resolve(
+            CharacterDetailsViewModel.self,
+            argument: character
+        )
+    }
+}
+
+private extension CharacterCoordinator {
+    func registerDependencies() {
+        Container.registerCharactersList()
+        Container.registerCharacterDetails()
     }
 }
