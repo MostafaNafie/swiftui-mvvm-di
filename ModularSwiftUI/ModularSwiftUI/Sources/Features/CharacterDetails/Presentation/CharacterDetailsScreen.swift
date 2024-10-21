@@ -14,43 +14,52 @@ public struct CharacterDetailsScreen: View {
     public init(viewModel: CharacterDetailsViewModel) {
         self.viewModel = viewModel
     }
-    
+
     public var body: some View {
         ScrollView {
-            KFImage(viewModel.character.imageUrl)
-                .resizable()
-                .ignoresSafeArea(edges: .top)
-                .scaledToFill()
-                .frame(height: 400, alignment: .top)
-                .overlay {
-                    Rectangle()
-                        .opacity(0.5)
+            if let character = viewModel.character {
+                KFImage(character.imageUrl)
+                    .resizable()
+                    .ignoresSafeArea(edges: .top)
+                    .scaledToFill()
+                    .frame(height: 400, alignment: .top)
+                    .overlay {
+                        Rectangle()
+                            .opacity(0.5)
+                    }
+                    .clipped()
+
+                CircleImageView(imageUrl: character.imageUrl)
+                    .offset(y: -225)
+                    .padding(.bottom, -280)
+
+                VStack(alignment: .center) {
+                    HStack {
+                        Text(character.name)
+                            .font(.title)
+                    }
+
+                    Divider()
+
+                    Text("About \(character.name)")
+                        .font(.title2)
+                        .padding()
+                    Text("Nickname: \(character.nickname)")
+                        .font(.body)
+                    Text("Birthday: \(character.birthday)")
+                        .font(.body)
                 }
-                .clipped()
-            
-            CircleImageView(imageUrl: viewModel.character.imageUrl)
-                .offset(y: -225)
-                .padding(.bottom, -280)
-            
-            VStack(alignment: .center) {
-                HStack {
-                    Text(viewModel.character.name)
-                        .font(.title)
-                }
-                
-                Divider()
-                
-                Text("About \(viewModel.character.name)")
-                    .font(.title2)
-                    .padding()
-                Text("Nickname: \(viewModel.character.nickname)")
-                    .font(.body)
-                Text("Birthday: \(viewModel.character.birthday)")
-                    .font(.body)
+                .padding()
+            } else {
+                Text("Loading...")
+                    .onViewDidLoad {
+                        viewModel.viewDidLoad()
+                    }
             }
-            .padding()
+
         }
         .navigationBarTitleDisplayMode(.inline)
+        .scrollIndicators(.hidden)
     }
 }
 
@@ -58,14 +67,13 @@ struct CharacterDetails_Previews: PreviewProvider {
     static var previews: some View {
         CharacterDetailsScreen(
             viewModel: .init(
-                id: 1,
                 characterDetailsUseCase: .init(repository: PreviewCharacterDetailsRepository())
             )
         )
     }
 
     struct PreviewCharacterDetailsRepository: CharacterDetailsRepositoryProtocol {
-        func getCharacter(with id: Int) -> Character {
+        func getSelectedCharacter() -> Character {
             Character(
                 name: "Walter White",
                 imageUrl: .init(

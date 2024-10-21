@@ -13,6 +13,7 @@ import CharacterDetails
 final public class CharacterRepository {
     private let networkService: CharacterListNetworkServicing
     private var characters: CharactersResponse = []
+    private var selectedCharacterID = 0
 
     public init(networkService: CharacterListNetworkServicing) {
         self.networkService = networkService
@@ -35,12 +36,16 @@ extension CharacterRepository: CharacterListRepositoryProtocol {
             }
             .eraseToAnyPublisher()
     }
+
+    public func setSelectedCharacter(with id: Int) {
+        selectedCharacterID = id
+    }
 }
 
 extension CharacterRepository: CharacterDetailsRepositoryProtocol {
-    public func getCharacter(with id: Int) -> CharacterDetails.Character {
-        guard let character = characters.first(where: { $0.id == id }) else {
-            fatalError("No character with id: \(id)")
+    public func getSelectedCharacter() -> CharacterDetails.Character {
+        guard let character = characters.first(where: { $0.id == selectedCharacterID }) else {
+            fatalError("No character with id: \(selectedCharacterID)")
         }
         return CharacterDetails.Character(
             name: character.name,

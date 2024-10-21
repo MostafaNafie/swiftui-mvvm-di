@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CharacterDetailsUseCase.swift
 //  
 //
 //  Created by Nafie on 21/10/2024.
@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol CharacterDetailsRepositoryProtocol {
-    func getCharacter(with id: Int) -> Character
+    func getSelectedCharacter() -> Character
 }
 
 public struct CharacterDetailsUseCase {
@@ -18,7 +18,7 @@ public struct CharacterDetailsUseCase {
         self.repository = repository
     }
 
-    func getCharacter(with id: Int) -> Character {
-        repository.getCharacter(with: id)
+    func getSelectedCharacter() -> Character {
+        repository.getSelectedCharacter()
     }
 }

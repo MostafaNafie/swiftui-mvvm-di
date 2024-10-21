@@ -33,10 +33,11 @@ public final class CharacterListViewModel: ObservableObject {
     }
     
     func viewDidLoad() {
-        fetchCharacters()
+        getCharacters()
     }
     
     func didTapCharacter(with id: Int) {
+        characterListUseCase.setSelectedCharacter(with: id)
         coordinator?.didTapCharacter(with: id)
     }
 
@@ -49,7 +50,7 @@ public final class CharacterListViewModel: ObservableObject {
 }
 
 private extension CharacterListViewModel {
-    func fetchCharacters() {
+    func getCharacters() {
         characterListUseCase
             .fetchCharacters()
             .sink(receiveCompletion: { [weak self] completion in

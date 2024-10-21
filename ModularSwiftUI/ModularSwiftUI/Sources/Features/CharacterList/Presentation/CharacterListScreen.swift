@@ -47,6 +47,8 @@ struct CharacterList_Previews: PreviewProvider {
     }
 
     struct PreviewCharacterListRepository: CharacterListRepositoryProtocol {
+        func setSelectedCharacter(with id: Int) {}
+        
         func getCharacters() -> AnyPublisher<[Character], any Error> {
             let fakeCharacters: [Character] = [
                 .init(

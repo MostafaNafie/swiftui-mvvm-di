@@ -10,6 +10,7 @@ import Foundation
 
 public protocol CharacterListRepositoryProtocol {
     func getCharacters() -> AnyPublisher<[Character], Error>
+    func setSelectedCharacter(with id: Int)
 }
 
 public struct CharacterListUseCase {
@@ -23,5 +24,9 @@ public struct CharacterListUseCase {
         repository.getCharacters()
             .print(#function)
             .eraseToAnyPublisher()
+    }
+
+    func setSelectedCharacter(with id: Int) {
+        repository.setSelectedCharacter(with: id)
     }
 }

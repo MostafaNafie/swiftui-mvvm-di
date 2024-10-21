@@ -21,7 +21,7 @@ public extension Container {
             CharacterRepository(
                 networkService: resolver.resolve(CharacterListNetworkServicing.self)!
             )
-        }.inObjectScope(.container)
+        }.inObjectScope(.weak)
         shared.register(CharacterDetailsRepositoryProtocol.self) { resolver in
             resolver.resolve(CharacterListRepositoryProtocol.self)! as! any CharacterDetailsRepositoryProtocol
         }

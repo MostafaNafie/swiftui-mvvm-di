@@ -26,10 +26,7 @@ class CharacterCoordinator: Identifiable, CharacterCoordinating {
     }
 
     func didTapCharacter(with id: Int) {
-        detailViewModel = Container.shared.resolve(
-            CharacterDetailsViewModel.self,
-            argument: id
-        )
+        detailViewModel = Container.shared.resolve(CharacterDetailsViewModel.self)
     }
 }
 

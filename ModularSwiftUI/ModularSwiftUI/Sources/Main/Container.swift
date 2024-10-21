@@ -11,7 +11,11 @@ import Common
 
 extension Container {
     static func registerMainDependencies() {
-        shared.register(HTTPClient.self, factory: {_ in URLSessionClient()}).inObjectScope(.container)
-        shared.register(CharacterCoordinating.self, factory: {_ in CharacterCoordinator()}).inObjectScope(.container)
+        shared.register(HTTPClient.self) {_ in
+            URLSessionClient()
+        }.inObjectScope(.container)
+        shared.register(CharacterCoordinating.self) {_ in
+            CharacterCoordinator()
+        }.inObjectScope(.container)
     }
 }

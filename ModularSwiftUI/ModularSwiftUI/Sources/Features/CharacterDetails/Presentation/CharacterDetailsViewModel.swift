@@ -9,24 +9,23 @@ import Observation
 
 @Observable
 public final class CharacterDetailsViewModel {
-    var character: Character!
+    var character: Character?
 
-    private var id: Int
     private let characterDetailsUseCase: CharacterDetailsUseCase
 
     public init(
-        id: Int,
         characterDetailsUseCase: CharacterDetailsUseCase
     ) {
-        self.id = id
         self.characterDetailsUseCase = characterDetailsUseCase
-        
-        fetchCharacter()
+    }
+
+    func viewDidLoad() {
+        getSelectedCharacter()
     }
 }
 
 private extension CharacterDetailsViewModel {
-    func fetchCharacter() {
-        character = characterDetailsUseCase.getCharacter(with: id)
+    func getSelectedCharacter() {
+        character = characterDetailsUseCase.getSelectedCharacter()
     }
 }

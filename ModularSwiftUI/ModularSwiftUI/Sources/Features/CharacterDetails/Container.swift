@@ -15,9 +15,8 @@ public extension Container {
                 repository: resolver.resolve(CharacterDetailsRepositoryProtocol.self)!
             )
         }
-        shared.register(CharacterDetailsViewModel.self) { resolver, id in
+        shared.register(CharacterDetailsViewModel.self) { resolver in
             CharacterDetailsViewModel(
-                id: id,
                 characterDetailsUseCase: resolver.resolve(CharacterDetailsUseCase.self)!
             )
         }
