@@ -10,14 +10,9 @@ import Common
 
 public extension Container {
     static func registerCharactersList() {
-        shared.register(CharacterListNetworkServicing.self) { resolver in
-            CharacterListNetworkService(
-                client: resolver.resolve(HTTPClient.self)!
-            )
-        }
         shared.register(CharacterListUseCase.self) { resolver in
             CharacterListUseCase(
-                networkService: resolver.resolve(CharacterListNetworkServicing.self)!
+                repository: resolver.resolve(CharacterListRepositoryProtocol.self)!
             )
         }
         shared.register(CharacterListViewModel.self) { resolver in

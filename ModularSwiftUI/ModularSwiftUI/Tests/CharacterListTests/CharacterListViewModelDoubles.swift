@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 @testable import CharacterList
+@testable import SharedCharacterData
 
 class MockCharacterListNetworkService: CharacterListNetworkServicing {
     func fetchCharacters() -> AnyPublisher<CharactersResponse, Error> {

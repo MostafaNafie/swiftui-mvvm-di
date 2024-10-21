@@ -10,7 +10,7 @@ import Observation
 
 public protocol CharacterCoordinating: AnyObject {
     func start()
-    func open(_ character: Character)
+    func didTapCharacter(with id: Int)
 }
 
 @Observable
@@ -24,8 +24,10 @@ public final class CharacterListViewModel: ObservableObject {
     private let coordinator: CharacterCoordinating?
     private var cancellables: Set<AnyCancellable> = []
     
-    public init(characterListUseCase: CharacterListUseCase,
-         coordinator: CharacterCoordinating? = nil) {
+    public init(
+        characterListUseCase: CharacterListUseCase,
+        coordinator: CharacterCoordinating? = nil
+    ) {
         self.characterListUseCase = characterListUseCase
         self.coordinator = coordinator
     }
@@ -34,8 +36,8 @@ public final class CharacterListViewModel: ObservableObject {
         fetchCharacters()
     }
     
-    func open(_ character: Character) {
-        coordinator?.open(character)
+    func didTapCharacter(with id: Int) {
+        coordinator?.didTapCharacter(with: id)
     }
 
     func reloadCharacters() {

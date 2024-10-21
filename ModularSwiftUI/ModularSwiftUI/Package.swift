@@ -6,8 +6,7 @@ let main: [Target] = [
     .target(
         name: "Main",
         dependencies: [
-            "CharacterList",
-            "CharacterDetails"
+            "SharedCharacterData",
         ]
     )
 ]
@@ -27,6 +26,14 @@ let features: [Target] = [
         ],
         path: "Sources/Features/CharacterDetails"
     ),
+    .target(
+        name: "SharedCharacterData",
+        dependencies: [
+            "CharacterList",
+            "CharacterDetails",
+        ],
+        path: "Sources/Features/SharedCharacterData"
+    ),
 ]
 
 let common: [Target] = [
@@ -42,7 +49,9 @@ let common: [Target] = [
 let tests: [Target] = [
     .testTarget(
         name: "CharacterListTests",
-        dependencies: ["CharacterList"]
+        dependencies: [
+            "SharedCharacterData"
+        ]
     ),
 ]
 

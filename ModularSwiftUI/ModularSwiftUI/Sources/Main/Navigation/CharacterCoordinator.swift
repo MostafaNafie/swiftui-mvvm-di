@@ -10,6 +10,7 @@ import Observation
 import Swinject
 import CharacterList
 import CharacterDetails
+import SharedCharacterData
 
 @Observable
 class CharacterCoordinator: Identifiable, CharacterCoordinating {
@@ -24,10 +25,10 @@ class CharacterCoordinator: Identifiable, CharacterCoordinating {
         viewModel = Container.shared.resolve(CharacterListViewModel.self)!
     }
 
-    func open(_ character: CharacterList.Character) {
+    func didTapCharacter(with id: Int) {
         detailViewModel = Container.shared.resolve(
             CharacterDetailsViewModel.self,
-            argument: mapCharacterFromListToDetails(character)
+            argument: id
         )
     }
 }
@@ -36,14 +37,6 @@ private extension CharacterCoordinator {
     func registerDependencies() {
         Container.registerCharactersList()
         Container.registerCharacterDetails()
-    }
-
-    func mapCharacterFromListToDetails(_ character: CharacterList.Character) -> CharacterDetails.Character {
-        CharacterDetails.Character(
-            name: character.name,
-            imageUrl: character.imageUrl,
-            nickname: character.nickname,
-            birthday: character.birthday
-        )
+        Container.registerCharacterData()
     }
 }

@@ -33,12 +33,19 @@ struct CharacterRowView: View {
             }
             .cornerRadius(14)
     }
-    
 }
 
 struct CharacterRow_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterRowView(character: .init(id: 1, name: "Walter White", imageUrl: URL(string: "https://vignette.wikia.nocookie.net/breakingbad/images/c/c1/4x11_-_Huell.png/revision/latest?cb=20130913100459&path-prefix=es")!, nickname: "Walter", birthday: "23/23/23"))
+        CharacterRowView(
+            character: .init(
+                id: 1,
+                name: "Walter White",
+                imageUrl: URL(
+                    string: "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
+                )!
+            )
+        )
             .previewLayout(.fixed(width: 300, height: 200))
     }
 }

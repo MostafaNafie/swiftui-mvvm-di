@@ -8,25 +8,20 @@
 import Combine
 import Foundation
 
+public protocol CharacterListRepositoryProtocol {
+    func getCharacters() -> AnyPublisher<[Character], Error>
+}
+
 public struct CharacterListUseCase {
-    private let networkService: CharacterListNetworkServicing
-    
-    public init(networkService: CharacterListNetworkServicing) {
-        self.networkService = networkService
+    private let repository: CharacterListRepositoryProtocol
+
+    public init(repository: CharacterListRepositoryProtocol) {
+        self.repository = repository
     }
     
     func fetchCharacters() -> AnyPublisher<[Character], Error> {
-        networkService.fetchCharacters()
+        repository.getCharacters()
             .print(#function)
-            .map{ charactersResponse in
-                charactersResponse.map {
-                    Character(id: $0.id,
-                              name: $0.name,
-                              imageUrl: URL(string: $0.img)!,
-                              nickname: $0.nickname,
-                              birthday: $0.birthday)
-                }
-            }
             .eraseToAnyPublisher()
     }
 }

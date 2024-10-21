@@ -8,9 +8,14 @@
 import XCTest
 import SwiftUI
 @testable import CharacterList
+@testable import SharedCharacterData
 
 class CharacterListViewModelTests: XCTestCase {
-    private let characterListUseCase = CharacterListUseCase(networkService: MockCharacterListNetworkService())
+    private let characterListUseCase = CharacterListUseCase(
+        repository: CharacterRepository(
+            networkService: MockCharacterListNetworkService()
+        )
+    )
     private var sut: CharacterListViewModel!
     
     override func setUp() {

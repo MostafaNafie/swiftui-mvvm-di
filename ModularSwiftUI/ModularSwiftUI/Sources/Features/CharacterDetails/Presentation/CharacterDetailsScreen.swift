@@ -56,14 +56,25 @@ public struct CharacterDetailsScreen: View {
 
 struct CharacterDetails_Previews: PreviewProvider {
     static var previews: some View {
-        let character = Character(
-            name: "Walter White",
-            imageUrl: .init(
-                string: "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
-            )!,
-            nickname: "Walter",
-            birthday: "23/23/23"
+        CharacterDetailsScreen(
+            viewModel: .init(
+                id: 1,
+                characterDetailsUseCase: .init(repository: PreviewCharacterDetailsRepository())
+            )
         )
-        CharacterDetailsScreen(viewModel: .init(character: character))
+    }
+
+    struct PreviewCharacterDetailsRepository: CharacterDetailsRepositoryProtocol {
+        func getCharacter(with id: Int) -> Character {
+            Character(
+                name: "Walter White",
+                imageUrl: .init(
+                    string: "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
+                )!,
+                nickname: "Walter",
+                birthday: "23/23/23"
+            )
+        }
     }
 }
+
