@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
+import Main
 
 @main
 struct ModularSwiftUIApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
     var body: some Scene {
         WindowGroup {
-            appDelegate.rootView
+            Entry.shared.rootView
         }
     }
 }
