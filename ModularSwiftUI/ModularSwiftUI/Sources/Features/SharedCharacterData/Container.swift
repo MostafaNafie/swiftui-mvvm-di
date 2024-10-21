@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  NetworkingRequest.swift
+//  ModularSwiftUI
 //
 //  Created by Nafie on 21/10/2024.
 //

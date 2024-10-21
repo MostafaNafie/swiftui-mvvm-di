@@ -1,6 +1,6 @@
 //
 //  Character.swift
-//  BreakingBad
+//  ModularSwiftUI
 //
 //  Created by Mostafa Nafie on 30/09/2022.
 //
