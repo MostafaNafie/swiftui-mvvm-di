@@ -11,6 +11,17 @@ let main: [Target] = [
     )
 ]
 
+let shared: [Target] = [
+    .target(
+        name: "SharedCharacterData",
+        dependencies: [
+            "CharacterList",
+            "CharacterDetails",
+        ],
+        path: "Sources/Shared/SharedCharacterData"
+    ),
+]
+
 let features: [Target] = [
     .target(
         name: "CharacterList",
@@ -25,14 +36,6 @@ let features: [Target] = [
             "Common",
         ],
         path: "Sources/Features/CharacterDetails"
-    ),
-    .target(
-        name: "SharedCharacterData",
-        dependencies: [
-            "CharacterList",
-            "CharacterDetails",
-        ],
-        path: "Sources/Features/SharedCharacterData"
     ),
 ]
 
@@ -78,6 +81,7 @@ let package = Package(
     dependencies: thirdPartyDependencies,
     targets:
         main +
+        shared +
         features +
         common +
         tests
