@@ -10,12 +10,12 @@ import Combine
 import CharacterList
 import CharacterDetails
 
-final public class CharacterRepository {
+final class CharacterRepository {
     private let networkService: CharacterListNetworkServicing
     private var characters: CharactersResponse = []
     private var selectedCharacterID = 0
 
-    public init(networkService: CharacterListNetworkServicing) {
+    init(networkService: CharacterListNetworkServicing) {
         self.networkService = networkService
     }
 }

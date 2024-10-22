@@ -9,10 +9,8 @@ import Combine
 import Foundation
 import Common
 
-public struct URLSessionClient: HTTPClient {
-    public init() {}
-    
-    public func perform<T: Decodable>(_ request: URLRequest) -> AnyPublisher<NetworkingResponse<T>, Error> {
+struct URLSessionClient: HTTPClient {
+    func perform<T: Decodable>(_ request: URLRequest) -> AnyPublisher<NetworkingResponse<T>, Error> {
         return URLSession.shared.dataTaskPublisher(for: request)
             .retry(3)
             .tryMap{result -> NetworkingResponse<T> in

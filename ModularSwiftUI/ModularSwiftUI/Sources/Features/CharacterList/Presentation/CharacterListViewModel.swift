@@ -24,7 +24,7 @@ public final class CharacterListViewModel: ObservableObject {
     private var characters: [Character] = []
     private var cancellables: Set<AnyCancellable> = []
     
-    public init(
+    init(
         interactor: CharacterListInteractor,
         coordinator: CharacterCoordinating
     ) {

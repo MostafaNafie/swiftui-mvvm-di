@@ -11,10 +11,10 @@ public protocol CharacterDetailsRepositoryProtocol {
     func getSelectedCharacter() -> Character
 }
 
-public struct CharacterDetailsInteractor {
+struct CharacterDetailsInteractor {
     private let repository: CharacterDetailsRepositoryProtocol
 
-    public init(repository: CharacterDetailsRepositoryProtocol) {
+    init(repository: CharacterDetailsRepositoryProtocol) {
         self.repository = repository
     }
 

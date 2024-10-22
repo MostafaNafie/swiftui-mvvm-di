@@ -13,10 +13,10 @@ public protocol CharacterListRepositoryProtocol {
     func setSelectedCharacter(with id: Int)
 }
 
-public struct CharacterListInteractor {
+ struct CharacterListInteractor {
     private let repository: CharacterListRepositoryProtocol
 
-    public init(repository: CharacterListRepositoryProtocol) {
+    init(repository: CharacterListRepositoryProtocol) {
         self.repository = repository
     }
     

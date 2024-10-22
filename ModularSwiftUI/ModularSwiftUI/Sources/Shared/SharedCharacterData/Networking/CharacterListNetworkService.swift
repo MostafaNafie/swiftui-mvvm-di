@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import Common
 
-public protocol CharacterListNetworkServicing {
+protocol CharacterListNetworkServicing {
     func fetchCharacters() -> AnyPublisher<CharactersResponse, Error>
 }
 
