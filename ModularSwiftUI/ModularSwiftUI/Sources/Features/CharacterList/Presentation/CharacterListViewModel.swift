@@ -20,15 +20,15 @@ public final class CharacterListViewModel: ObservableObject {
     var error: Error? = nil
 
     private var characters: [Character] = []
-    private let characterListUseCase: CharacterListUseCase
+    private let interactor: CharacterListInteractor
     private let coordinator: CharacterCoordinating?
     private var cancellables: Set<AnyCancellable> = []
     
     public init(
-        characterListUseCase: CharacterListUseCase,
+        interactor: CharacterListInteractor,
         coordinator: CharacterCoordinating? = nil
     ) {
-        self.characterListUseCase = characterListUseCase
+        self.interactor = interactor
         self.coordinator = coordinator
     }
     
@@ -37,7 +37,7 @@ public final class CharacterListViewModel: ObservableObject {
     }
     
     func didTapCharacter(with id: Int) {
-        characterListUseCase.setSelectedCharacter(with: id)
+        interactor.setSelectedCharacter(with: id)
         coordinator?.didTapCharacter(with: id)
     }
 
@@ -51,7 +51,7 @@ public final class CharacterListViewModel: ObservableObject {
 
 private extension CharacterListViewModel {
     func getCharacters() {
-        characterListUseCase
+        interactor
             .fetchCharacters()
             .sink(receiveCompletion: { [weak self] completion in
                 switch completion {

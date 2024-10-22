@@ -11,7 +11,7 @@ import SwiftUI
 @testable import SharedCharacterData
 
 class CharacterListViewModelTests: XCTestCase {
-    private let characterListUseCase = CharacterListUseCase(
+    private let interactor = CharacterListInteractor(
         repository: CharacterRepository(
             networkService: MockCharacterListNetworkService()
         )
@@ -19,7 +19,7 @@ class CharacterListViewModelTests: XCTestCase {
     private var sut: CharacterListViewModel!
     
     override func setUp() {
-        self.sut = CharacterListViewModel(characterListUseCase: characterListUseCase)
+        self.sut = CharacterListViewModel(interactor: interactor)
     }
     
     override func tearDown() {

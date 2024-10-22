@@ -11,12 +11,12 @@ import Observation
 public final class CharacterDetailsViewModel {
     var character: Character?
 
-    private let characterDetailsUseCase: CharacterDetailsUseCase
+    private let interactor: CharacterDetailsInteractor
 
     public init(
-        characterDetailsUseCase: CharacterDetailsUseCase
+        interactor: CharacterDetailsInteractor
     ) {
-        self.characterDetailsUseCase = characterDetailsUseCase
+        self.interactor = interactor
     }
 
     func viewDidLoad() {
@@ -26,6 +26,6 @@ public final class CharacterDetailsViewModel {
 
 private extension CharacterDetailsViewModel {
     func getSelectedCharacter() {
-        character = characterDetailsUseCase.getSelectedCharacter()
+        character = interactor.getSelectedCharacter()
     }
 }

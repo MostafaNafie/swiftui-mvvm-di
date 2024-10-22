@@ -39,7 +39,7 @@ public struct CharacterListScreen: View {
 
 struct CharacterList_Previews: PreviewProvider {
     static let viewModel = CharacterListViewModel(
-        characterListUseCase: .init(repository: PreviewCharacterListRepository())
+        interactor: .init(repository: PreviewCharacterListRepository())
     )
     
     static var previews: some View {

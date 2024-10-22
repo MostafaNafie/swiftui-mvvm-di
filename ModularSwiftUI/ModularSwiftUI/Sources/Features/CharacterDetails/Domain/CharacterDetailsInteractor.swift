@@ -1,5 +1,5 @@
 //
-//  CharacterDetailsUseCase.swift
+//  CharacterDetailsInteractor.swift
 //  
 //
 //  Created by Nafie on 21/10/2024.
@@ -11,7 +11,7 @@ public protocol CharacterDetailsRepositoryProtocol {
     func getSelectedCharacter() -> Character
 }
 
-public struct CharacterDetailsUseCase {
+public struct CharacterDetailsInteractor {
     private let repository: CharacterDetailsRepositoryProtocol
 
     public init(repository: CharacterDetailsRepositoryProtocol) {

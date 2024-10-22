@@ -10,14 +10,14 @@ import Common
 
 public extension Container {
     static func registerCharacterDetails() {
-        shared.register(CharacterDetailsUseCase.self) { resolver in
-            CharacterDetailsUseCase(
+        shared.register(CharacterDetailsInteractor.self) { resolver in
+            CharacterDetailsInteractor(
                 repository: resolver.resolve(CharacterDetailsRepositoryProtocol.self)!
             )
         }
         shared.register(CharacterDetailsViewModel.self) { resolver in
             CharacterDetailsViewModel(
-                characterDetailsUseCase: resolver.resolve(CharacterDetailsUseCase.self)!
+                interactor: resolver.resolve(CharacterDetailsInteractor.self)!
             )
         }
     }

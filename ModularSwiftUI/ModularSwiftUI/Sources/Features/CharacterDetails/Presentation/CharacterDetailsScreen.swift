@@ -67,7 +67,7 @@ struct CharacterDetails_Previews: PreviewProvider {
     static var previews: some View {
         CharacterDetailsScreen(
             viewModel: .init(
-                characterDetailsUseCase: .init(repository: PreviewCharacterDetailsRepository())
+                interactor: .init(repository: PreviewCharacterDetailsRepository())
             )
         )
     }

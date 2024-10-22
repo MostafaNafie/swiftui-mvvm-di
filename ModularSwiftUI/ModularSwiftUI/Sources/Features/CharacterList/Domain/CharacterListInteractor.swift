@@ -1,5 +1,5 @@
 //
-//  CharactersListUseCase.swift
+//  CharactersListInteractor.swift
 //  ModularSwiftUI
 //
 //  Created by Mostafa Nafie on 01/10/2022.
@@ -13,7 +13,7 @@ public protocol CharacterListRepositoryProtocol {
     func setSelectedCharacter(with id: Int)
 }
 
-public struct CharacterListUseCase {
+public struct CharacterListInteractor {
     private let repository: CharacterListRepositoryProtocol
 
     public init(repository: CharacterListRepositoryProtocol) {

@@ -10,14 +10,14 @@ import Common
 
 public extension Container {
     static func registerCharactersList() {
-        shared.register(CharacterListUseCase.self) { resolver in
-            CharacterListUseCase(
+        shared.register(CharacterListInteractor.self) { resolver in
+            CharacterListInteractor(
                 repository: resolver.resolve(CharacterListRepositoryProtocol.self)!
             )
         }
         shared.register(CharacterListViewModel.self) { resolver in
             CharacterListViewModel(
-                characterListUseCase: resolver.resolve(CharacterListUseCase.self)!,
+                interactor: resolver.resolve(CharacterListInteractor.self)!,
                 coordinator: resolver.resolve(CharacterCoordinating.self)
             )
         }
