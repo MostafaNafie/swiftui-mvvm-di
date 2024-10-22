@@ -9,7 +9,6 @@ import Combine
 import Observation
 
 public protocol CharacterCoordinating: AnyObject {
-    func start()
     func didTapCharacter(with id: Int)
 }
 
@@ -19,14 +18,15 @@ public final class CharacterListViewModel: ObservableObject {
     var searchQuery: String = ""
     var error: Error? = nil
 
-    private var characters: [Character] = []
     private let interactor: CharacterListInteractor
-    private let coordinator: CharacterCoordinating?
+    private let coordinator: CharacterCoordinating
+    
+    private var characters: [Character] = []
     private var cancellables: Set<AnyCancellable> = []
     
     public init(
         interactor: CharacterListInteractor,
-        coordinator: CharacterCoordinating? = nil
+        coordinator: CharacterCoordinating
     ) {
         self.interactor = interactor
         self.coordinator = coordinator
@@ -38,7 +38,7 @@ public final class CharacterListViewModel: ObservableObject {
     
     func didTapCharacter(with id: Int) {
         interactor.setSelectedCharacter(with: id)
-        coordinator?.didTapCharacter(with: id)
+        coordinator.didTapCharacter(with: id)
     }
 
     func reloadCharacters() {

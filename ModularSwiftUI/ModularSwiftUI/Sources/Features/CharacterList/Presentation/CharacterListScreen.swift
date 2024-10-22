@@ -39,7 +39,8 @@ public struct CharacterListScreen: View {
 
 struct CharacterList_Previews: PreviewProvider {
     static let viewModel = CharacterListViewModel(
-        interactor: .init(repository: PreviewCharacterListRepository())
+        interactor: .init(repository: PreviewCharacterListRepository()),
+        coordinator: PreviewCharacterCoordinator()
     )
     
     static var previews: some View {
@@ -71,6 +72,11 @@ struct CharacterList_Previews: PreviewProvider {
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         }
+    }
+
+    class PreviewCharacterCoordinator: CharacterCoordinating {
+        func start() {}
+        func didTapCharacter(with id: Int) {}
     }
 }
 

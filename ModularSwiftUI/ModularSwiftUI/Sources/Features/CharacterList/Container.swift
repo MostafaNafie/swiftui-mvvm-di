@@ -18,7 +18,7 @@ public extension Container {
         shared.register(CharacterListViewModel.self) { resolver in
             CharacterListViewModel(
                 interactor: resolver.resolve(CharacterListInteractor.self)!,
-                coordinator: resolver.resolve(CharacterCoordinating.self)
+                coordinator: resolver.resolve(CharacterCoordinating.self)!
             )
         }
     }

@@ -39,13 +39,23 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CharacterListTests"
                BuildableName = "CharacterListTests"
                BlueprintName = "CharacterListTests"
                ReferencedContainer = "container:ModularSwiftUI/Modules/CharacterList">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CharacterListTests"
+               BuildableName = "CharacterListTests"
+               BlueprintName = "CharacterListTests"
+               ReferencedContainer = "container:ModularSwiftUI/ModularSwiftUI">
             </BuildableReference>
          </TestableReference>
       </Testables>

@@ -53,7 +53,8 @@ let tests: [Target] = [
     .testTarget(
         name: "CharacterListTests",
         dependencies: [
-            "SharedCharacterData"
+            "SharedCharacterData",
+            "CharacterList",
         ]
     ),
 ]

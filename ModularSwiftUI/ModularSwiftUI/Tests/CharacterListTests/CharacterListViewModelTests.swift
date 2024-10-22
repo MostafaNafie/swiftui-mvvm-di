@@ -11,15 +11,18 @@ import SwiftUI
 @testable import SharedCharacterData
 
 class CharacterListViewModelTests: XCTestCase {
-    private let interactor = CharacterListInteractor(
-        repository: CharacterRepository(
-            networkService: MockCharacterListNetworkService()
-        )
-    )
     private var sut: CharacterListViewModel!
-    
+    private var coordinatorSpy: CharacterCoordinaterSpy!
+
     override func setUp() {
-        self.sut = CharacterListViewModel(interactor: interactor)
+        let interactor = CharacterListInteractor(
+            repository: CharacterRepository(networkService: MockCharacterListNetworkService())
+        )
+        coordinatorSpy = CharacterCoordinaterSpy()
+        sut = CharacterListViewModel(
+            interactor: interactor,
+            coordinator: coordinatorSpy
+        )
     }
     
     override func tearDown() {
@@ -82,5 +85,12 @@ class CharacterListViewModelTests: XCTestCase {
         expectedValue = 3
         actualValue = sut.filteredCharacters.count
         XCTAssertEqual(expectedValue, actualValue)
+    }
+
+    func test_did_tap_character_navigates_sucessfully() {
+        sut.didTapCharacter(with: 3)
+
+        XCTAssertEqual(coordinatorSpy.didTapCharacterCount, 1)
+        XCTAssertEqual(coordinatorSpy.didTapCharacterWithID, 3)
     }
 }

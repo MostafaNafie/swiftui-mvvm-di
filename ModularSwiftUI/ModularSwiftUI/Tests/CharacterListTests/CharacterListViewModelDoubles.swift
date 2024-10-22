@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-@testable import CharacterList
+import CharacterList
 @testable import SharedCharacterData
 
 class MockCharacterListNetworkService: CharacterListNetworkServicing {
@@ -20,5 +20,17 @@ class MockCharacterListNetworkService: CharacterListNetworkServicing {
         return Just(fakeCharacters)
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
+    }
+}
+
+class CharacterCoordinaterSpy: CharacterCoordinating {
+    var didTapCharacterCount = 0
+    var didTapCharacterWithID = 0
+
+    func start() {}
+
+    func didTapCharacter(with id: Int) {
+        didTapCharacterCount += 1
+        didTapCharacterWithID = id
     }
 }

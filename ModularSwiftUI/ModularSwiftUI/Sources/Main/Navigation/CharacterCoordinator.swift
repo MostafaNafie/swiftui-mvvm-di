@@ -13,7 +13,7 @@ import CharacterDetails
 import SharedCharacterData
 
 @Observable
-class CharacterCoordinator: Identifiable, CharacterCoordinating {
+class CharacterCoordinator: Identifiable {
     var viewModel: CharacterListViewModel? = nil
     var detailViewModel: CharacterDetailsViewModel? = nil
 
@@ -24,7 +24,9 @@ class CharacterCoordinator: Identifiable, CharacterCoordinating {
     func start() {
         viewModel = Container.shared.resolve(CharacterListViewModel.self)!
     }
+}
 
+extension CharacterCoordinator: CharacterCoordinating {
     func didTapCharacter(with id: Int) {
         detailViewModel = Container.shared.resolve(CharacterDetailsViewModel.self)
     }
