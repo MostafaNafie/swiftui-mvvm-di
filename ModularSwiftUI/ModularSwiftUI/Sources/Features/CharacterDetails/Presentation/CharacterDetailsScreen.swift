@@ -17,49 +17,44 @@ public struct CharacterDetailsScreen: View {
 
     public var body: some View {
         ScrollView {
-            if let character = viewModel.character {
-                KFImage(character.imageUrl)
-                    .resizable()
-                    .ignoresSafeArea(edges: .top)
-                    .scaledToFill()
-                    .frame(height: 400, alignment: .top)
-                    .overlay {
-                        Rectangle()
-                            .opacity(0.5)
-                    }
-                    .clipped()
-
-                CircleImageView(imageUrl: character.imageUrl)
-                    .offset(y: -225)
-                    .padding(.bottom, -280)
-
-                VStack(alignment: .center) {
-                    HStack {
-                        Text(character.name)
-                            .font(.title)
-                    }
-
-                    Divider()
-
-                    Text("About \(character.name)")
-                        .font(.title2)
-                        .padding()
-                    Text("Nickname: \(character.nickname)")
-                        .font(.body)
-                    Text("Birthday: \(character.birthday)")
-                        .font(.body)
+            KFImage(viewModel.character.imageUrl)
+                .resizable()
+                .ignoresSafeArea(edges: .top)
+                .scaledToFill()
+                .frame(height: 400, alignment: .top)
+                .overlay {
+                    Rectangle()
+                        .opacity(0.5)
                 }
-                .padding()
-            } else {
-                Text("Loading...")
-                    .onViewDidLoad {
-                        viewModel.viewDidLoad()
-                    }
-            }
+                .clipped()
 
+            CircleImageView(imageUrl: viewModel.character.imageUrl)
+                .offset(y: -225)
+                .padding(.bottom, -280)
+
+            VStack(alignment: .center) {
+                HStack {
+                    Text(viewModel.character.name)
+                        .font(.title)
+                }
+
+                Divider()
+
+                Text("About \(viewModel.character.name)")
+                    .font(.title2)
+                    .padding()
+                Text("Nickname: \(viewModel.character.nickname)")
+                    .font(.body)
+                Text("Birthday: \(viewModel.character.birthday)")
+                    .font(.body)
+            }
+            .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
         .scrollIndicators(.hidden)
+        .onViewDidLoad() {
+            viewModel.viewDidLoad()
+        }
     }
 }
 

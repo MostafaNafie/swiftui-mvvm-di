@@ -16,6 +16,23 @@ public struct CharacterListScreen: View {
     }
 
     public var body: some View {
+        Group {
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                listView()
+            }
+        }
+        .navigationTitle("Breaking Bad")
+        .onViewDidLoad {
+            await viewModel.viewDidLoad()
+        }
+        .errorAlert(error: $viewModel.error)
+    }
+}
+
+private extension CharacterListScreen {
+    func listView() -> some View {
         List($viewModel.filteredCharacters) { character in
             CharacterRowView(character: character.wrappedValue)
                 .listRowSeparator(.hidden)
@@ -23,16 +40,11 @@ public struct CharacterListScreen: View {
                     viewModel.didTapCharacter(with: character.wrappedValue.id)
                 }
         }
-        .listStyle(PlainListStyle())
-        .navigationTitle("Breaking Bad")
-        .onViewDidLoad {
-            await viewModel.viewDidLoad()
-        }
+        .listStyle(.plain)
         .searchable(
             text: $viewModel.searchQuery,
             prompt: "Search Characters by Name"
         )
-        .errorAlert(error: $viewModel.error)
     }
 }
 

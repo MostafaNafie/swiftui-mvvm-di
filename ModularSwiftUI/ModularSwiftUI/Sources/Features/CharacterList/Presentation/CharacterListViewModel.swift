@@ -19,6 +19,7 @@ public final class CharacterListViewModel {
             filterCharacters(by: searchQuery)
         }
     }
+    var isLoading: Bool = true
     var error: Error? = nil
 
     private let interactor: CharacterListInteractor
@@ -49,7 +50,8 @@ private extension CharacterListViewModel {
         switch await interactor.fetchCharacters() {
             case .success(let characters):
                 self.characters = characters
-                self.filteredCharacters = characters
+                filteredCharacters = characters
+                isLoading = false
             case .failure(let error):
                 self.error = error
         }

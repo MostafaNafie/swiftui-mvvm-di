@@ -9,7 +9,7 @@ import Observation
 
 @Observable
 public final class CharacterDetailsViewModel {
-    var character: Character?
+    var character: Character = .empty
 
     private let interactor: CharacterDetailsInteractor
 

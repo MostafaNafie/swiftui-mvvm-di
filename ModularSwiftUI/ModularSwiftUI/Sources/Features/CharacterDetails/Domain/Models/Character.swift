@@ -20,3 +20,12 @@ public struct Character: Equatable {
         self.birthday = birthday
     }
 }
+
+extension Character {
+    static let empty = Character(
+        name: "",
+        imageUrl: URL("")!,
+        nickname: "",
+        birthday: ""
+    )
+}
