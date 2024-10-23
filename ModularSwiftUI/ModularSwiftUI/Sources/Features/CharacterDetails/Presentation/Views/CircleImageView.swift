@@ -24,8 +24,6 @@ struct CircleImageView: View {
     }
 }
 
-struct CircleImage_Previews: PreviewProvider {
-    static var previews: some View {
-        CircleImageView(imageUrl: .init(string: "https://vignette.wikia.nocookie.net/breakingbad/images/9/95/JesseS5.jpg/revision/latest?cb=20120620012441")!)
-    }
+#Preview {
+    CircleImageView(imageUrl: .preview)
 }

@@ -20,9 +20,7 @@ struct CaptionView: View {
     }
 }
 
-struct Caption_Previews: PreviewProvider {
-    static var previews: some View {
-        CaptionView(text: "Walter White")
-            .background(.black)
-    }
+#Preview() {
+    CaptionView(text: "Walter White")
+        .background(.black)
 }

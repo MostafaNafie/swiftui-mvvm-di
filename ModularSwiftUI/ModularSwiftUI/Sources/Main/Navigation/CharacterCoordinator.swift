@@ -27,7 +27,7 @@ class CharacterCoordinator: Identifiable {
 }
 
 extension CharacterCoordinator: CharacterCoordinating {
-    func didTapCharacter(with id: Int) {
+    func didTapCharacter() {
         detailViewModel = Container.shared.resolve(CharacterDetailsViewModel.self)
     }
 }

@@ -9,7 +9,7 @@ import Combine
 import Observation
 
 public protocol CharacterCoordinating: AnyObject {
-    func didTapCharacter(with id: Int)
+    func didTapCharacter()
 }
 
 @Observable
@@ -38,7 +38,7 @@ public final class CharacterListViewModel: ObservableObject {
     
     func didTapCharacter(with id: Int) {
         interactor.setSelectedCharacter(with: id)
-        coordinator.didTapCharacter(with: id)
+        coordinator.didTapCharacter()
     }
 
     func reloadCharacters() {
