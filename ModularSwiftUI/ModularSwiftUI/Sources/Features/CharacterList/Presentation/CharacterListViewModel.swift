@@ -14,7 +14,11 @@ public protocol CharacterCoordinating: AnyObject {
 @Observable
 public final class CharacterListViewModel {
     var filteredCharacters: [Character] = []
-    var searchQuery: String = ""
+    var searchQuery: String = "" {
+        didSet {
+            filterCharacters(by: searchQuery)
+        }
+    }
     var error: Error? = nil
 
     private let interactor: CharacterListInteractor
@@ -38,13 +42,6 @@ public final class CharacterListViewModel {
         interactor.setSelectedCharacter(with: id)
         coordinator.didTapCharacter()
     }
-
-    func reloadCharacters() {
-        filteredCharacters = characters.filter {
-            searchQuery.isEmpty ? true : $0.name
-                .localizedCaseInsensitiveContains(searchQuery)
-        }
-    }
 }
 
 private extension CharacterListViewModel {
@@ -55,6 +52,13 @@ private extension CharacterListViewModel {
                 self.filteredCharacters = characters
             case .failure(let error):
                 self.error = error
+        }
+    }
+
+    func filterCharacters(by searchQuery: String) {
+        filteredCharacters = characters.filter {
+            searchQuery.isEmpty ? true : $0.name
+                .localizedCaseInsensitiveContains(searchQuery)
         }
     }
 }

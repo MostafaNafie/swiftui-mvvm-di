@@ -32,9 +32,6 @@ public struct CharacterListScreen: View {
             text: $viewModel.searchQuery,
             prompt: "Search Characters by Name"
         )
-        .onChange(of: viewModel.searchQuery) { _, query in
-            viewModel.reloadCharacters()
-        }
         .errorAlert(error: $viewModel.error)
     }
 }
