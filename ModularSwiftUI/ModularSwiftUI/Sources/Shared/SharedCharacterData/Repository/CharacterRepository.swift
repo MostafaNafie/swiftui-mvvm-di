@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 import CharacterList
 import CharacterDetails
 
@@ -21,10 +20,10 @@ final class CharacterRepository {
 }
 
 extension CharacterRepository: CharacterListRepositoryProtocol {
-    public func getCharacters() -> AnyPublisher<[CharacterList.Character], Error> {
-        networkService.fetchCharacters()
-            .print(#function)
-            .map{ [weak self] charactersResponse in
+    func getCharacters() async -> Result<[CharacterList.Character], Error> {
+        await networkService.fetchCharacters()
+            .map {
+                [weak self] charactersResponse in
                 self?.characters = charactersResponse
                 return charactersResponse.map {
                     CharacterList.Character(
@@ -34,7 +33,6 @@ extension CharacterRepository: CharacterListRepositoryProtocol {
                     )
                 }
             }
-            .eraseToAnyPublisher()
     }
 
     public func setSelectedCharacter(with id: Int) {
@@ -43,7 +41,7 @@ extension CharacterRepository: CharacterListRepositoryProtocol {
 }
 
 extension CharacterRepository: CharacterDetailsRepositoryProtocol {
-    public func getSelectedCharacter() -> CharacterDetails.Character {
+    func getSelectedCharacter() -> CharacterDetails.Character {
         guard let character = characters.first(where: { $0.id == selectedCharacterID }) else {
             fatalError("No character with id: \(selectedCharacterID)")
         }

@@ -6,20 +6,16 @@
 //
 
 import Foundation
-import Combine
 import CharacterList
 @testable import SharedCharacterData
 
 class MockCharacterListNetworkService: CharacterListNetworkServicing {
-    func fetchCharacters() -> AnyPublisher<CharactersResponse, Error> {
-        let fakeCharacters: CharactersResponse = [
+    func fetchCharacters() async -> Result<CharactersResponse, any Error> {
+        .success([
             .init(id: 1, name: "Walter White", birthday: "", occupation: nil, img: "google.com", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
             .init(id: 2, name: "Jesse Pinkman", birthday: "", occupation: nil, img: "google.com", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
             .init(id: 3, name: "Henry Schrader", birthday: "Unknown", occupation: nil, img: "google.com", status: nil, nickname: "Hank", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil)
-        ]
-        return Just(fakeCharacters)
-            .setFailureType(to: Error.self)
-            .eraseToAnyPublisher()
+        ])
     }
 }
 

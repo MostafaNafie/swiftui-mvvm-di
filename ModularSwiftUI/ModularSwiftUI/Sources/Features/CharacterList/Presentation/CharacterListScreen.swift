@@ -5,8 +5,8 @@
 //  Created by Mostafa Nafie on 26/09/2022.
 //
 
-import SwiftUI
 import Common
+import SwiftUI
 
 public struct CharacterListScreen: View {
     @Bindable private var viewModel: CharacterListViewModel
@@ -14,7 +14,7 @@ public struct CharacterListScreen: View {
     public init(viewModel: CharacterListViewModel) {
         self.viewModel = viewModel
     }
-    
+
     public var body: some View {
         List($viewModel.filteredCharacters) { character in
             CharacterRowView(character: character.wrappedValue)
@@ -26,7 +26,7 @@ public struct CharacterListScreen: View {
         .listStyle(PlainListStyle())
         .navigationTitle("Breaking Bad")
         .onViewDidLoad {
-            viewModel.viewDidLoad()
+            await viewModel.viewDidLoad()
         }
         .searchable(
             text: $viewModel.searchQuery,

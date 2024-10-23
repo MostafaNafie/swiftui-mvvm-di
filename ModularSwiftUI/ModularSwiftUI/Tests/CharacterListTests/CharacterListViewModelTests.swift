@@ -37,26 +37,26 @@ class CharacterListViewModelTests: XCTestCase {
         XCTAssertEqual(actualValue, expectedValue)
     }
     
-    func test_returns_correct_fetched_characters_count() {
-        sut.viewDidLoad()
-        
+    func test_returns_correct_fetched_characters_count() async {
+        await sut.viewDidLoad()
+
         let expectedValue = 3
         let actualValue = sut.filteredCharacters.count
         
         XCTAssertEqual(actualValue, expectedValue)
     }
     
-    func test_returns_correct_fetched_characters_mapping() {
-        sut.viewDidLoad()
-        
+    func test_returns_correct_fetched_characters_mapping() async {
+        await sut.viewDidLoad()
+
         let expectedValue = "Walter White"
         let actualValue = sut.filteredCharacters.first?.name
 
         XCTAssertEqual(actualValue, expectedValue)
     }
     
-    func test_returns_correct_filtered_characters() {
-        sut.viewDidLoad()
+    func test_returns_correct_filtered_characters() async {
+        await sut.viewDidLoad()
         sut.searchQuery = "wh"
         
         var expectedValue = "Walter White"
@@ -71,8 +71,8 @@ class CharacterListViewModelTests: XCTestCase {
         XCTAssertEqual(actualValue, expectedValue)
     }
     
-    func test_returns_correct_unfiltered_characters_after_reset() {
-        sut.viewDidLoad()
+    func test_returns_correct_unfiltered_characters_after_reset() async {
+        await sut.viewDidLoad()
         sut.searchQuery = "wh"
         sut.reloadCharacters()
 
@@ -88,7 +88,7 @@ class CharacterListViewModelTests: XCTestCase {
         XCTAssertEqual(actualValue, expectedValue)
     }
 
-    func test_did_tap_character_navigates_sucessfully() {
+    func test_did_tap_character_navigates_successfully() {
         sut.didTapCharacter(with: 3)
 
         let expectedValue = 1
@@ -96,8 +96,8 @@ class CharacterListViewModelTests: XCTestCase {
         XCTAssertEqual(actualValue, expectedValue)
     }
 
-    func test_did_tap_character_correct_selected_character() {
-        sut.viewDidLoad()
+    func test_did_tap_character_correct_selected_character() async {
+        await sut.viewDidLoad()
         sut.didTapCharacter(with: 3)
 
         let expectedValue = CharacterDetails.Character(

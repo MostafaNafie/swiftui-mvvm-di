@@ -5,7 +5,6 @@
 //  Created by Nafie on 23/10/2024.
 //
 
-import Combine
 import Foundation
 
 extension CharacterListViewModel {
@@ -15,10 +14,8 @@ extension CharacterListViewModel {
     )
 
     struct CharacterListRepositoryPreview: CharacterListRepositoryProtocol {
-        func setSelectedCharacter(with id: Int) {}
-
-        func getCharacters() -> AnyPublisher<[Character], any Error> {
-            let fakeCharacters: [Character] = [
+        func getCharacters() async -> Result<[Character], any Error> {
+            .success([
                 .init(
                     id: 1,
                     name: "Walter White",
@@ -34,11 +31,10 @@ extension CharacterListViewModel {
                     name: "Henry Schrader",
                     imageUrl: URL(string: "https://vignette.wikia.nocookie.net/breakingbad/images/b/b7/HankS5.jpg/revision/latest/scale-to-width-down/700?cb=20120620014136")!
                 )
-            ]
-            return Just(fakeCharacters)
-                .setFailureType(to: Error.self)
-                .eraseToAnyPublisher()
+            ])
         }
+
+        func setSelectedCharacter(with id: Int) {}
     }
 
     class CharacterCoordinatorPreview: CharacterCoordinating {

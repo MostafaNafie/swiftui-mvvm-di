@@ -9,21 +9,21 @@ import SwiftUI
 
 public struct ViewDidLoadModifier: ViewModifier {
     @State private var viewDidLoad = false
-    let action: (() -> Void)?
-    
+    let action: (() async -> Void)?
+
     public func body(content: Content) -> some View {
         content
-            .onAppear {
+            .task {
                 if viewDidLoad == false {
                     viewDidLoad = true
-                    action?()
+                    await action?()
                 }
             }
     }
 }
 
 public extension View {
-    func onViewDidLoad(perform action: (() -> Void)? = nil) -> some View {
+    func onViewDidLoad(perform action: (() async -> Void)? = nil) -> some View {
         self.modifier(ViewDidLoadModifier(action: action))
     }
 }

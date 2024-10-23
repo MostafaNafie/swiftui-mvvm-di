@@ -5,12 +5,11 @@
 //  Created by Mostafa Nafie on 26/09/2022.
 //
 
-import Combine
 import Foundation
 import Common
 
 protocol CharacterListNetworkServicing {
-    func fetchCharacters() -> AnyPublisher<CharactersResponse, Error>
+    func fetchCharacters() async -> Result<CharactersResponse, Error>
 }
 
 struct CharacterListNetworkService: CharacterListNetworkServicing {
@@ -20,10 +19,8 @@ struct CharacterListNetworkService: CharacterListNetworkServicing {
         self.client = client
     }
     
-    func fetchCharacters() -> AnyPublisher<CharactersResponse, Error> {
+    func fetchCharacters() async -> Result<CharactersResponse, Error> {
         let request = CharactersRequest().buildURLRequest()
-        return client.perform(request)
-            .map(\.value)
-            .eraseToAnyPublisher()
+        return await client.perform(request)
     }
 }
