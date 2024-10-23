@@ -8,16 +8,17 @@
 import XCTest
 import SwiftUI
 @testable import CharacterList
+@testable import CharacterDetails
 @testable import SharedCharacterData
 
 class CharacterListViewModelTests: XCTestCase {
     private var sut: CharacterListViewModel!
     private var coordinatorSpy: CharacterCoordinaterSpy!
+    private var repository: CharacterRepository!
 
     override func setUp() {
-        let interactor = CharacterListInteractor(
-            repository: CharacterRepository(networkService: MockCharacterListNetworkService())
-        )
+        repository = CharacterRepository(networkService: MockCharacterListNetworkService())
+        let interactor = CharacterListInteractor(repository: repository)
         coordinatorSpy = CharacterCoordinaterSpy()
         sut = CharacterListViewModel(
             interactor: interactor,
@@ -33,7 +34,7 @@ class CharacterListViewModelTests: XCTestCase {
         let expectedValue = 0
         let actualValue = sut.filteredCharacters.count
         
-        XCTAssertEqual(expectedValue, actualValue)
+        XCTAssertEqual(actualValue, expectedValue)
     }
     
     func test_returns_correct_fetched_characters_count() {
@@ -42,7 +43,7 @@ class CharacterListViewModelTests: XCTestCase {
         let expectedValue = 3
         let actualValue = sut.filteredCharacters.count
         
-        XCTAssertEqual(expectedValue, actualValue)
+        XCTAssertEqual(actualValue, expectedValue)
     }
     
     func test_returns_correct_fetched_characters_mapping() {
@@ -51,7 +52,7 @@ class CharacterListViewModelTests: XCTestCase {
         let expectedValue = "Walter White"
         let actualValue = sut.filteredCharacters.first?.name
 
-        XCTAssertEqual(expectedValue, actualValue)
+        XCTAssertEqual(actualValue, expectedValue)
     }
     
     func test_returns_correct_filtered_characters() {
@@ -60,14 +61,14 @@ class CharacterListViewModelTests: XCTestCase {
         
         var expectedValue = "Walter White"
         var actualValue = sut.filteredCharacters.first?.name
-        XCTAssertEqual(expectedValue, actualValue)
-        
+        XCTAssertEqual(actualValue, expectedValue)
+
         sut.searchQuery = "jesse"
         sut.reloadCharacters()
 
         expectedValue = "Jesse Pinkman"
         actualValue = sut.filteredCharacters.first?.name
-        XCTAssertEqual(expectedValue, actualValue)
+        XCTAssertEqual(actualValue, expectedValue)
     }
     
     func test_returns_correct_unfiltered_characters_after_reset() {
@@ -77,20 +78,35 @@ class CharacterListViewModelTests: XCTestCase {
 
         var expectedValue = 1
         var actualValue = sut.filteredCharacters.count
-        XCTAssertEqual(expectedValue, actualValue)
-        
+        XCTAssertEqual(actualValue, expectedValue)
+
         sut.searchQuery = ""
         sut.reloadCharacters()
 
         expectedValue = 3
         actualValue = sut.filteredCharacters.count
-        XCTAssertEqual(expectedValue, actualValue)
+        XCTAssertEqual(actualValue, expectedValue)
     }
 
     func test_did_tap_character_navigates_sucessfully() {
         sut.didTapCharacter(with: 3)
 
-        XCTAssertEqual(coordinatorSpy.didTapCharacterCount, 1)
-        XCTAssertEqual(coordinatorSpy.didTapCharacterWithID, 3)
+        let expectedValue = 1
+        let actualValue = coordinatorSpy.didTapCharacterCount
+        XCTAssertEqual(actualValue, expectedValue)
+    }
+
+    func test_did_tap_character_correct_selected_character() {
+        sut.viewDidLoad()
+        sut.didTapCharacter(with: 3)
+
+        let expectedValue = CharacterDetails.Character(
+            name: "Henry Schrader",
+            imageUrl: URL(string: "google.com")!,
+            nickname: "Hank",
+            birthday: "Unknown"
+        )
+        let actualValue = repository.getSelectedCharacter()
+        XCTAssertEqual(actualValue, expectedValue)
     }
 }

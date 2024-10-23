@@ -15,7 +15,7 @@ class MockCharacterListNetworkService: CharacterListNetworkServicing {
         let fakeCharacters: CharactersResponse = [
             .init(id: 1, name: "Walter White", birthday: "", occupation: nil, img: "google.com", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
             .init(id: 2, name: "Jesse Pinkman", birthday: "", occupation: nil, img: "google.com", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),
-            .init(id: 3, name: "Henry Schrader", birthday: "", occupation: nil, img: "google.com", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil)
+            .init(id: 3, name: "Henry Schrader", birthday: "Unknown", occupation: nil, img: "google.com", status: nil, nickname: "Hank", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil)
         ]
         return Just(fakeCharacters)
             .setFailureType(to: Error.self)
@@ -25,12 +25,8 @@ class MockCharacterListNetworkService: CharacterListNetworkServicing {
 
 class CharacterCoordinaterSpy: CharacterCoordinating {
     var didTapCharacterCount = 0
-    var didTapCharacterWithID = 0
 
-    func start() {}
-
-    func didTapCharacter(with id: Int) {
+    func didTapCharacter() {
         didTapCharacterCount += 1
-        didTapCharacterWithID = id
     }
 }
