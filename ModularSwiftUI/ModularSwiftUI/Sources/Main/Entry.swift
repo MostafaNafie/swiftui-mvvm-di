@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import CharacterList
-import Swinject
 
 public class Entry {
     public static let shared = Entry()

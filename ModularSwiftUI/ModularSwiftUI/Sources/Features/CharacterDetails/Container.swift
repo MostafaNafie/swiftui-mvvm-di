@@ -5,8 +5,7 @@
 //  Created by Mostafa Nafie on 27/09/2022.
 //
 
-import Common
-import Factory
+@_exported import Common
 
 public extension Container {
     var characterDetailsRepository: Factory<CharacterDetailsRepositoryProtocol?> { promised() }

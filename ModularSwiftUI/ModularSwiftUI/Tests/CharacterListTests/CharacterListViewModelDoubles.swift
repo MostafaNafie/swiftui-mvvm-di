@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CharacterList
 @testable import SharedCharacterData
 
 class MockCharacterListNetworkService: CharacterListNetworkServicing {
@@ -19,7 +18,7 @@ class MockCharacterListNetworkService: CharacterListNetworkServicing {
     }
 }
 
-class CharacterCoordinaterSpy: CharacterCoordinating {
+class CharacterCoordinatorSpy: CharacterCoordinating {
     var didTapCharacterCount = 0
 
     func didTapCharacter() {

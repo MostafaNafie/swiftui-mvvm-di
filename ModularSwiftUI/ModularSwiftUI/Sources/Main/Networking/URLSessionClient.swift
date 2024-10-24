@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Common
 
 struct URLSessionClient: HTTPClient {
     func perform<T: Decodable>(_ request: URLRequest) async -> Result<T, Error> {

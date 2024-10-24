@@ -5,10 +5,8 @@
 //  Created by Nafie on 21/10/2024.
 //
 
-import Swinject
-import Common
-import CharacterList
-import CharacterDetails
+@_exported import CharacterList
+@_exported import CharacterDetails
 
 public extension Container {
     func registerCharacterData() {

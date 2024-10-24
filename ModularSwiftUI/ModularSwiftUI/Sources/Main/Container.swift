@@ -5,9 +5,7 @@
 //  Created by Mostafa Nafie on 29/09/2022.
 //
 
-import CharacterList
-import Common
-import Factory
+@_exported import SharedCharacterData
 
 extension Container: @retroactive AutoRegistering {
     // Fulfil the promises made in other modules. (Check promised function)

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Common
 
 protocol CharacterListNetworkServicing {
     func fetchCharacters() async -> Result<CharactersResponse, Error>

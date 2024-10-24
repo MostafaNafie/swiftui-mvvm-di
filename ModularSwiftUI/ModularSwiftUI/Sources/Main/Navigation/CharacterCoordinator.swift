@@ -7,10 +7,6 @@
 
 import SwiftUI
 import Observation
-import Factory
-import CharacterList
-import CharacterDetails
-import SharedCharacterData
 
 @Observable
 class CharacterCoordinator: Identifiable {

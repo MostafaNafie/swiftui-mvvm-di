@@ -13,13 +13,13 @@ import SwiftUI
 
 class CharacterListViewModelTests: XCTestCase {
     private var sut: CharacterListViewModel!
-    private var coordinatorSpy: CharacterCoordinaterSpy!
+    private var coordinatorSpy: CharacterCoordinatorSpy!
     private var repository: CharacterRepository!
 
     override func setUp() {
         repository = CharacterRepository(networkService: MockCharacterListNetworkService())
         let interactor = CharacterListInteractor(repository: repository)
-        coordinatorSpy = CharacterCoordinaterSpy()
+        coordinatorSpy = CharacterCoordinatorSpy()
         sut = CharacterListViewModel(
             interactor: interactor,
             coordinator: coordinatorSpy

@@ -5,7 +5,6 @@
 //  Created by Mostafa Nafie on 26/09/2022.
 //
 
-import Common
 import SwiftUI
 
 public struct CharacterListScreen: View {

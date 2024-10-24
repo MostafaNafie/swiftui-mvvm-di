@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import CharacterList
-import CharacterDetails
 
 final class CharacterRepository {
     private let networkService: CharacterListNetworkServicing
