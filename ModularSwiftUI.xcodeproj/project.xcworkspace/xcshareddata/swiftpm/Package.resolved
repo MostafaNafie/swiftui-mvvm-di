@@ -1,21 +1,21 @@
 {
   "pins" : [
     {
+      "identity" : "factory",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hmlongco/Factory.git",
+      "state" : {
+        "revision" : "f350e0d71ba241b392f70519a67e769d5e3858d4",
+        "version" : "2.4.1"
+      }
+    },
+    {
       "identity" : "kingfisher",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
         "revision" : "e8625b80c413457b13ea9be75d07f6e9f5830c19",
         "version" : "7.7.0"
-      }
-    },
-    {
-      "identity" : "swinject",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Swinject/Swinject.git",
-      "state" : {
-        "revision" : "11e65d83ba100459a41837119a8af32f182339f1",
-        "version" : "2.8.2"
       }
     }
   ],

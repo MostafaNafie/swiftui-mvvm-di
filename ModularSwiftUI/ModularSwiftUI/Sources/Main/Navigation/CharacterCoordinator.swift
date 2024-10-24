@@ -7,35 +7,23 @@
 
 import SwiftUI
 import Observation
-import Swinject
+import Factory
 import CharacterList
 import CharacterDetails
 import SharedCharacterData
 
 @Observable
 class CharacterCoordinator: Identifiable {
-    var viewModel: CharacterListViewModel? = nil
-    var detailViewModel: CharacterDetailsViewModel? = nil
-
-    init() {
-        registerDependencies()
-    }
+    var characterListViewModel: CharacterListViewModel!
+    var characterDetailsViewModel: CharacterDetailsViewModel!
 
     func start() {
-        viewModel = Container.shared.resolve(CharacterListViewModel.self)!
+        characterListViewModel = Container.shared.characterListViewModel()
     }
 }
 
 extension CharacterCoordinator: CharacterCoordinating {
     func didTapCharacter() {
-        detailViewModel = Container.shared.resolve(CharacterDetailsViewModel.self)
-    }
-}
-
-private extension CharacterCoordinator {
-    func registerDependencies() {
-        Container.registerCharactersList()
-        Container.registerCharacterDetails()
-        Container.registerCharacterData()
+        characterDetailsViewModel = Container.shared.characterDetailsViewModel()
     }
 }

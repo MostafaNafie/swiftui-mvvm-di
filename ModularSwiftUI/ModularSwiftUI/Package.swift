@@ -43,7 +43,7 @@ let common: [Target] = [
     .target(
         name: "Common",
         dependencies: [
-            "Swinject",
+            "Factory",
             "Kingfisher",
         ]
     ),
@@ -61,7 +61,7 @@ let tests: [Target] = [
 
 let thirdPartyDependencies: [Package.Dependency] = [
     .package(
-        url: "https://github.com/Swinject/Swinject.git",
+        url: "https://github.com/hmlongco/Factory.git",
         from: "2.0.0"
     ),
     .package(

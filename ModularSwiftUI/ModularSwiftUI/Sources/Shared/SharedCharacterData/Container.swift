@@ -11,19 +11,26 @@ import CharacterList
 import CharacterDetails
 
 public extension Container {
-    static func registerCharacterData() {
-        shared.register(CharacterListNetworkServicing.self) { resolver in
-            CharacterListNetworkService(
-                client: resolver.resolve(HTTPClient.self)!
-            )
+    func registerCharacterData() {
+        characterDetailsRepository.register {
+            self.characterRepository()
         }
-        shared.register(CharacterListRepositoryProtocol.self) { resolver in
-            CharacterRepository(
-                networkService: resolver.resolve(CharacterListNetworkServicing.self)!
-            )
-        }.inObjectScope(.weak)
-        shared.register(CharacterDetailsRepositoryProtocol.self) { resolver in
-            resolver.resolve(CharacterListRepositoryProtocol.self)! as! any CharacterDetailsRepositoryProtocol
+        characterListRepository.register {
+            self.characterRepository()
         }
+    }
+}
+
+private extension Container {
+    var networkService: Factory<CharacterListNetworkServicing> {
+        self {
+            CharacterListNetworkService(client: self.httpClient()!)
+        }
+    }
+
+    var characterRepository: Factory<CharacterRepository> {
+        self {
+            CharacterRepository(networkService: self.networkService())
+        }.shared
     }
 }

@@ -14,8 +14,8 @@ struct CharacterCoordinatorView: View {
 
     var body: some View {
         NavigationView {
-            CharacterListScreen(viewModel: coordinator.viewModel!)
-                .navigation(item: $coordinator.detailViewModel) { viewModel in
+            CharacterListScreen(viewModel: coordinator.characterListViewModel)
+                .navigation(item: $coordinator.characterDetailsViewModel) { viewModel in
                     CharacterDetailsScreen(viewModel: viewModel)
                 }
         }

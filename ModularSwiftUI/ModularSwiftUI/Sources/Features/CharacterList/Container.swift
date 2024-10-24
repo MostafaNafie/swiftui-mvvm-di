@@ -5,21 +5,27 @@
 //  Created by Mostafa Nafie on 26/09/2022.
 //
 
-import Swinject
 import Common
+import Factory
 
 public extension Container {
-    static func registerCharactersList() {
-        shared.register(CharacterListInteractor.self) { resolver in
-            CharacterListInteractor(
-                repository: resolver.resolve(CharacterListRepositoryProtocol.self)!
+    var characterCoordinator: Factory<CharacterCoordinating?> { promised().shared }
+    var characterListRepository: Factory<CharacterListRepositoryProtocol?> { promised() }
+
+    var characterListViewModel: Factory<CharacterListViewModel> {
+        self {
+            CharacterListViewModel(
+                interactor: self.characterListInteractor(),
+                coordinator: self.characterCoordinator()!
             )
         }
-        shared.register(CharacterListViewModel.self) { resolver in
-            CharacterListViewModel(
-                interactor: resolver.resolve(CharacterListInteractor.self)!,
-                coordinator: resolver.resolve(CharacterCoordinating.self)!
-            )
+    }
+}
+
+private extension Container {
+    var characterListInteractor: Factory<CharacterListInteractor> {
+        self {
+            CharacterListInteractor(repository: self.characterListRepository()!)
         }
     }
 }
