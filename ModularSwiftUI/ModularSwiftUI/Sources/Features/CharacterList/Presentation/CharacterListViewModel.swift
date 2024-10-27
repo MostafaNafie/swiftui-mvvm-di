@@ -35,17 +35,20 @@ public final class CharacterListViewModel {
         self.coordinator = coordinator
     }
 
+    @MainActor
     func viewDidLoad() async {
         await getCharacters()
     }
 
-    func didTapCharacter(with id: Int) {
-        interactor.setSelectedCharacter(with: id)
+    @MainActor
+    func didTapCharacter(with id: Int) async {
+        await interactor.setSelectedCharacter(with: id)
         coordinator.didTapCharacter()
     }
 }
 
 private extension CharacterListViewModel {
+    @MainActor
     func getCharacters() async {
         switch await interactor.fetchCharacters() {
             case .success(let characters):

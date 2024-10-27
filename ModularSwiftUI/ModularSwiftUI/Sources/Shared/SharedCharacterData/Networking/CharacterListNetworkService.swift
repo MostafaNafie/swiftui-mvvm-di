@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CharacterListNetworkServicing {
+protocol CharacterListNetworkServicing: Sendable {
     func fetchCharacters() async -> Result<CharactersResponse, Error>
 }
 

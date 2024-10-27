@@ -8,12 +8,12 @@
 import Foundation
 
 extension CharacterListViewModel {
-    static let preview = CharacterListViewModel(
+    @MainActor static let preview = CharacterListViewModel(
         interactor: .init(repository: CharacterListRepositoryPreview()),
         coordinator: CharacterCoordinatorPreview()
     )
 
-    struct CharacterListRepositoryPreview: CharacterListRepositoryProtocol {
+    actor CharacterListRepositoryPreview: CharacterListRepositoryProtocol {
         func getCharacters() async -> Result<[Character], any Error> {
             .success([
                 .init(

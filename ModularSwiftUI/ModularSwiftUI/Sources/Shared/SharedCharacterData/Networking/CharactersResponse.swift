@@ -9,7 +9,7 @@ import Foundation
 
 typealias CharactersResponse = [Character]
 
-struct Character: Codable {
+struct Character: Codable, Sendable {
     let id: Int
     let name: String
     let birthday: String

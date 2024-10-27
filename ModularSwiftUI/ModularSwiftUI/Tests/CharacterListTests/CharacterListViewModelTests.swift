@@ -36,7 +36,8 @@ class CharacterListViewModelTests: XCTestCase {
         
         XCTAssertEqual(actualValue, expectedValue)
     }
-    
+
+    @MainActor
     func test_returns_correct_fetched_characters_count() async {
         await sut.viewDidLoad()
 
@@ -45,7 +46,8 @@ class CharacterListViewModelTests: XCTestCase {
         
         XCTAssertEqual(actualValue, expectedValue)
     }
-    
+
+    @MainActor
     func test_returns_correct_fetched_characters_mapping() async {
         await sut.viewDidLoad()
 
@@ -54,7 +56,8 @@ class CharacterListViewModelTests: XCTestCase {
 
         XCTAssertEqual(actualValue, expectedValue)
     }
-    
+
+    @MainActor
     func test_returns_correct_filtered_characters() async {
         await sut.viewDidLoad()
         sut.searchQuery = "wh"
@@ -69,7 +72,8 @@ class CharacterListViewModelTests: XCTestCase {
         actualValue = sut.filteredCharacters.first?.name
         XCTAssertEqual(actualValue, expectedValue)
     }
-    
+
+    @MainActor
     func test_returns_correct_unfiltered_characters_after_reset() async {
         await sut.viewDidLoad()
         sut.searchQuery = "wh"
@@ -85,17 +89,19 @@ class CharacterListViewModelTests: XCTestCase {
         XCTAssertEqual(actualValue, expectedValue)
     }
 
-    func test_did_tap_character_navigates_successfully() {
-        sut.didTapCharacter(with: 3)
+    @MainActor
+    func test_did_tap_character_navigates_successfully() async {
+        await sut.didTapCharacter(with: 3)
 
         let expectedValue = 1
         let actualValue = coordinatorSpy.didTapCharacterCount
         XCTAssertEqual(actualValue, expectedValue)
     }
 
+    @MainActor
     func test_did_tap_character_correct_selected_character() async {
         await sut.viewDidLoad()
-        sut.didTapCharacter(with: 3)
+        await sut.didTapCharacter(with: 3)
 
         let expectedValue = CharacterDetails.Character(
             name: "Henry Schrader",
@@ -103,7 +109,7 @@ class CharacterListViewModelTests: XCTestCase {
             nickname: "Hank",
             birthday: "Unknown"
         )
-        let actualValue = repository.getSelectedCharacter()
+        let actualValue = await repository.getSelectedCharacter()
         XCTAssertEqual(actualValue, expectedValue)
     }
 }

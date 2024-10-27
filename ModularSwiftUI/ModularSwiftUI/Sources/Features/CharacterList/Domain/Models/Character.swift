@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Character: Identifiable, Equatable {
+public struct Character: Identifiable, Equatable, Sendable {
     public let id: Int
     public let name: String
     public let imageUrl: URL

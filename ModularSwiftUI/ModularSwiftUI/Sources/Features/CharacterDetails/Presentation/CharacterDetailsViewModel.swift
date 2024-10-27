@@ -19,13 +19,15 @@ public final class CharacterDetailsViewModel {
         self.interactor = interactor
     }
 
-    func viewDidLoad() {
-        getSelectedCharacter()
+    @MainActor
+    func viewDidLoad() async {
+        await getSelectedCharacter()
     }
 }
 
 private extension CharacterDetailsViewModel {
-    func getSelectedCharacter() {
-        character = interactor.getSelectedCharacter()
+    @MainActor
+    func getSelectedCharacter() async {
+        character = await interactor.getSelectedCharacter()
     }
 }

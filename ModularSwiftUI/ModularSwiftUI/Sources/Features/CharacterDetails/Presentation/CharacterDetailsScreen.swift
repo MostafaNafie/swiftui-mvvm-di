@@ -53,7 +53,7 @@ public struct CharacterDetailsScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .scrollIndicators(.hidden)
         .onViewDidLoad() {
-            viewModel.viewDidLoad()
+            await viewModel.viewDidLoad()
         }
     }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 extension CharacterDetailsViewModel {
-    static let preview = CharacterDetailsViewModel(interactor: .init(repository: CharacterDetailsRepositoryPreview()))
+    @MainActor static let preview = CharacterDetailsViewModel(interactor: .init(repository: CharacterDetailsRepositoryPreview()))
 
-    struct CharacterDetailsRepositoryPreview: CharacterDetailsRepositoryProtocol {
+    actor CharacterDetailsRepositoryPreview: CharacterDetailsRepositoryProtocol {
         func getSelectedCharacter() -> Character {
             Character(
                 name: "Walter White",

@@ -9,12 +9,14 @@ import SwiftUI
 
 public extension View {
 
-    func onNavigation(_ action: @escaping () -> Void) -> some View {
+    func onNavigation(_ action: @escaping () async -> Void) -> some View {
         let isActive = Binding(
             get: { false },
             set: { newValue in
                 if newValue {
-                    action()
+                    Task {
+                        await action()
+                    }
                 }
             }
         )

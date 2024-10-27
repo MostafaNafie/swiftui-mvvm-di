@@ -36,7 +36,7 @@ private extension CharacterListScreen {
             CharacterRowView(character: character.wrappedValue)
                 .listRowSeparator(.hidden)
                 .onNavigation {
-                    viewModel.didTapCharacter(with: character.wrappedValue.id)
+                    await viewModel.didTapCharacter(with: character.wrappedValue.id)
                 }
         }
         .listStyle(.plain)

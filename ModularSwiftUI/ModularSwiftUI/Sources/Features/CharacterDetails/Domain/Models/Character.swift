@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Character: Equatable {
+public struct Character: Equatable, Sendable {
     public let name: String
     public let imageUrl: URL
     public let nickname: String
@@ -24,7 +24,7 @@ public struct Character: Equatable {
 extension Character {
     static let empty = Character(
         name: "",
-        imageUrl: URL("")!,
+        imageUrl: URL(string: "google.com")!,
         nickname: "",
         birthday: ""
     )

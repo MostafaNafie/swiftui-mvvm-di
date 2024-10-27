@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol CharacterDetailsRepositoryProtocol {
+public protocol CharacterDetailsRepositoryProtocol: Actor {
     func getSelectedCharacter() -> Character
 }
 
@@ -18,7 +18,7 @@ struct CharacterDetailsInteractor {
         self.repository = repository
     }
 
-    func getSelectedCharacter() -> Character {
-        repository.getSelectedCharacter()
+    func getSelectedCharacter() async -> Character {
+        await repository.getSelectedCharacter()
     }
 }

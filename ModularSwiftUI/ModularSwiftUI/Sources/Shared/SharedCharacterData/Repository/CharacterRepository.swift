@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CharacterRepository {
+final actor CharacterRepository {
     private let networkService: CharacterListNetworkServicing
     private var characters: CharactersResponse = []
     private var selectedCharacterID = 0
@@ -19,18 +19,22 @@ final class CharacterRepository {
 
 extension CharacterRepository: CharacterListRepositoryProtocol {
     func getCharacters() async -> Result<[CharacterList.Character], Error> {
-        await networkService.fetchCharacters()
-            .map {
-                [weak self] charactersResponse in
-                self?.characters = charactersResponse
-                return charactersResponse.map {
-                    CharacterList.Character(
-                        id: $0.id,
-                        name: $0.name,
-                        imageUrl: URL(string: $0.img)!
-                    )
-                }
-            }
+        let response = await networkService.fetchCharacters()
+        switch response {
+            case .success(let charactersResponse):
+                characters = charactersResponse
+                return .success(
+                    charactersResponse.map {
+                        CharacterList.Character(
+                            id: $0.id,
+                            name: $0.name,
+                            imageUrl: URL(string: $0.img)!
+                        )
+                    }
+                )
+            case .failure(let error):
+                return .failure(error)
+        }
     }
 
     public func setSelectedCharacter(with id: Int) {

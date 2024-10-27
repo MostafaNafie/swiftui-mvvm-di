@@ -7,6 +7,6 @@
 
 import Foundation
 
-public protocol HTTPClient {
+public protocol HTTPClient: Sendable {
     func perform<T: Decodable>(_ request: URLRequest) async -> Result<T, Error>
 }

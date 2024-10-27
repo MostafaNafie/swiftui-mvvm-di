@@ -8,7 +8,7 @@
 import Foundation
 @testable import SharedCharacterData
 
-class MockCharacterListNetworkService: CharacterListNetworkServicing {
+struct MockCharacterListNetworkService: CharacterListNetworkServicing {
     func fetchCharacters() async -> Result<CharactersResponse, any Error> {
         .success([
             .init(id: 1, name: "Walter White", birthday: "", occupation: nil, img: "google.com", status: nil, nickname: "", appearance: nil, portrayed: nil, category: nil, betterCallSaulAppearance: nil),

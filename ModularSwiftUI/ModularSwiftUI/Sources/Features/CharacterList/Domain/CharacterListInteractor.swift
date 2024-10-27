@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol CharacterListRepositoryProtocol {
+public protocol CharacterListRepositoryProtocol: Actor {
     func getCharacters() async -> Result<[Character], Error>
     func setSelectedCharacter(with id: Int)
 }
@@ -23,7 +23,7 @@ struct CharacterListInteractor {
         await repository.getCharacters()
     }
 
-    func setSelectedCharacter(with id: Int) {
-        repository.setSelectedCharacter(with: id)
+    func setSelectedCharacter(with id: Int) async {
+        await repository.setSelectedCharacter(with: id)
     }
 }
