@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct CharacterListScreen: View {
-    @Bindable private var viewModel: CharacterListViewModel
+    @State private var viewModel: CharacterListViewModel
 
     public init(viewModel: CharacterListViewModel) {
         self.viewModel = viewModel

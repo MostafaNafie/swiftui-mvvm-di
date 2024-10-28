@@ -7,8 +7,8 @@
 
 import Observation
 
-public protocol CharacterCoordinating: AnyObject {
-    func didTapCharacter()
+public protocol CharacterCoordinating {
+    @MainActor func didTapCharacter()
 }
 
 @Observable

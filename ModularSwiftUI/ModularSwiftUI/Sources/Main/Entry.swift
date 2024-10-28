@@ -8,12 +8,12 @@
 import SwiftUI
 
 public class Entry {
-    @MainActor public static let shared = Entry()
+    public var rootView: CharacterCoordinatorView
 
-    private var coordinator = Container.shared.characterCoordinator() as! CharacterCoordinator
-    @MainActor public lazy var rootView: some View = CharacterCoordinatorView(coordinator: coordinator)
-
-    private init() {
-        coordinator.start()
+    @MainActor
+    public init() {
+        rootView = CharacterCoordinatorView(
+            coordinator: Container.shared.characterCoordinator() as! CharacterCoordinator
+        )
     }
 }

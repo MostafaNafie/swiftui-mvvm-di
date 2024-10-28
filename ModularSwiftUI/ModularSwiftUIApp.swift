@@ -12,7 +12,7 @@ import Main
 struct ModularSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            Entry.shared.rootView
+            Entry().rootView
         }
     }
 }

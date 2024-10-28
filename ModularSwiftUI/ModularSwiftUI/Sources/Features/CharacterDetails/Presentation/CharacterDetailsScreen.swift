@@ -9,7 +9,7 @@ import SwiftUI
 import Kingfisher
 
 public struct CharacterDetailsScreen: View {
-    @Bindable var viewModel: CharacterDetailsViewModel
+    @State var viewModel: CharacterDetailsViewModel
 
     public init(viewModel: CharacterDetailsViewModel) {
         self.viewModel = viewModel

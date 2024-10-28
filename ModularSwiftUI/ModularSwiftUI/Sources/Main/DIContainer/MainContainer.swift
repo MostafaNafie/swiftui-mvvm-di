@@ -15,7 +15,7 @@ extension Container {
         }.singleton
     }
     
-    public var characterCoordinator: Factory<CharacterCoordinating> {
+    var characterCoordinator: Factory<CharacterCoordinating> {
         self {
             CharacterCoordinator()
         }.shared

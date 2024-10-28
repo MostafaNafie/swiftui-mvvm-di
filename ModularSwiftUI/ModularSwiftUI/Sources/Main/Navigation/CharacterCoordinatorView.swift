@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-struct CharacterCoordinatorView: View {
-    @Bindable var coordinator: CharacterCoordinator
+public struct CharacterCoordinatorView: View {
+    @State var coordinator: CharacterCoordinator
 
-    var body: some View {
+    init(coordinator: CharacterCoordinator) {
+        self.coordinator = coordinator
+        coordinator.start()
+    }
+
+    public var body: some View {
         NavigationView {
-            CharacterListScreen(viewModel: coordinator.characterListViewModel)
-                .navigation(item: $coordinator.characterDetailsViewModel) { viewModel in
-                    CharacterDetailsScreen(viewModel: viewModel)
+            coordinator.characterListScreen
+                .navigation(item: $coordinator.characterDetailsScreen) { characterDetailsScreen in
+                    characterDetailsScreen
                 }
         }
     }

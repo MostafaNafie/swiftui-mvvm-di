@@ -10,16 +10,22 @@ import Observation
 
 @Observable
 class CharacterCoordinator: Identifiable {
-    var characterListViewModel: CharacterListViewModel!
-    var characterDetailsViewModel: CharacterDetailsViewModel!
+    var characterListScreen: CharacterListScreen!
+    var characterDetailsScreen: CharacterDetailsScreen!
 
+    @MainActor
     func start() {
-        characterListViewModel = Container.shared.characterListViewModel()
+        characterListScreen = CharacterListScreen(
+            viewModel: Container.shared.characterListViewModel()
+        )
     }
 }
 
 extension CharacterCoordinator: CharacterCoordinating {
-    func didTapCharacter() {
-        characterDetailsViewModel = Container.shared.characterDetailsViewModel()
+    @MainActor
+    public func didTapCharacter() {
+        characterDetailsScreen = CharacterDetailsScreen(
+            viewModel: Container.shared.characterDetailsViewModel()
+        )
     }
 }
