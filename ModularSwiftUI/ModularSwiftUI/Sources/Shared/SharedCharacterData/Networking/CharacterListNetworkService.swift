@@ -7,18 +7,18 @@
 
 import Foundation
 
-protocol CharacterListNetworkServicing: Sendable {
+public protocol CharacterListNetworkServicing: Sendable {
     func fetchCharacters() async -> Result<CharactersResponse, Error>
 }
 
-struct CharacterListNetworkService: CharacterListNetworkServicing {
+public struct CharacterListNetworkService: CharacterListNetworkServicing {
     private let client: HTTPClient
     
-    init(client: HTTPClient) {
+    public init(client: HTTPClient) {
         self.client = client
     }
     
-    func fetchCharacters() async -> Result<CharactersResponse, Error> {
+    public func fetchCharacters() async -> Result<CharactersResponse, Error> {
         let request = CharactersRequest().buildURLRequest()
         return await client.perform(request)
     }

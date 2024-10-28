@@ -7,9 +7,9 @@
 
 import Foundation
 
-typealias CharactersResponse = [Character]
+public typealias CharactersResponse = [Character]
 
-struct Character: Codable, Sendable {
+public struct Character: Codable, Sendable {
     let id: Int
     let name: String
     let birthday: String

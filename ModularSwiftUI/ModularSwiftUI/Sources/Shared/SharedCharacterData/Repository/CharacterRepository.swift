@@ -5,20 +5,21 @@
 //  Created by Nafie on 21/10/2024.
 //
 
-import Foundation
+@_exported import CharacterList
+@_exported import CharacterDetails
 
-final actor CharacterRepository {
+public final actor CharacterRepository {
     private let networkService: CharacterListNetworkServicing
     private var characters: CharactersResponse = []
     private var selectedCharacterID = 0
 
-    init(networkService: CharacterListNetworkServicing) {
+    public init(networkService: CharacterListNetworkServicing) {
         self.networkService = networkService
     }
 }
 
 extension CharacterRepository: CharacterListRepositoryProtocol {
-    func getCharacters() async -> Result<[CharacterList.Character], Error> {
+    public func getCharacters() async -> Result<[CharacterList.Character], Error> {
         let response = await networkService.fetchCharacters()
         switch response {
             case .success(let charactersResponse):
@@ -37,7 +38,7 @@ extension CharacterRepository: CharacterListRepositoryProtocol {
 }
 
 extension CharacterRepository: CharacterDetailsRepositoryProtocol {
-    func getSelectedCharacter() -> CharacterDetails.Character {
+    public func getSelectedCharacter() -> CharacterDetails.Character {
         guard let character = characters.first(where: { $0.id == selectedCharacterID }) else {
             fatalError("No character with id: \(selectedCharacterID)")
         }

@@ -27,7 +27,7 @@ public final class CharacterListViewModel {
 
     private var characters: [Character] = []
 
-    init(
+    public init(
         interactor: CharacterListInteractor,
         coordinator: CharacterCoordinating
     ) {

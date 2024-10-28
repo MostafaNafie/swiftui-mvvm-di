@@ -5,17 +5,17 @@
 //  Created by Mostafa Nafie on 01/10/2022.
 //
 
-import Foundation
+@_exported import Common
 
 public protocol CharacterListRepositoryProtocol: Actor {
     func getCharacters() async -> Result<[Character], Error>
     func setSelectedCharacter(with id: Int)
 }
 
-struct CharacterListInteractor {
+public struct CharacterListInteractor: Sendable {
     private let repository: CharacterListRepositoryProtocol
 
-    init(repository: CharacterListRepositoryProtocol) {
+    public init(repository: CharacterListRepositoryProtocol) {
         self.repository = repository
     }
 

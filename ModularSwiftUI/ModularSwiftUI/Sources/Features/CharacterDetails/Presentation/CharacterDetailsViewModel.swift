@@ -13,7 +13,7 @@ public final class CharacterDetailsViewModel {
 
     private let interactor: CharacterDetailsInteractor
 
-    init(
+    public init(
         interactor: CharacterDetailsInteractor
     ) {
         self.interactor = interactor

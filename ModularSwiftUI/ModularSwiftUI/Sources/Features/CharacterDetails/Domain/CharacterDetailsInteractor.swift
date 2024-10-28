@@ -5,16 +5,16 @@
 //  Created by Nafie on 21/10/2024.
 //
 
-import Foundation
+@_exported import Common
 
 public protocol CharacterDetailsRepositoryProtocol: Actor {
     func getSelectedCharacter() -> Character
 }
 
-struct CharacterDetailsInteractor {
+public struct CharacterDetailsInteractor: Sendable {
     private let repository: CharacterDetailsRepositoryProtocol
 
-    init(repository: CharacterDetailsRepositoryProtocol) {
+    public init(repository: CharacterDetailsRepositoryProtocol) {
         self.repository = repository
     }
 
