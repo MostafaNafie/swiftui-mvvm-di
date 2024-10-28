@@ -40,7 +40,8 @@ extension CharacterRepository: CharacterListRepositoryProtocol {
 extension CharacterRepository: CharacterDetailsRepositoryProtocol {
     public func getSelectedCharacter() -> CharacterDetails.Character {
         guard let character = characters.first(where: { $0.id == selectedCharacterID }) else {
-            fatalError("No character with id: \(selectedCharacterID)")
+            print("No character with id: \(selectedCharacterID)")
+            return CharacterDetails.Character.empty
         }
         return character.toDetailsCharacter()
     }

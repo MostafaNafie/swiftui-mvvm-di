@@ -21,7 +21,7 @@ public struct Character: Equatable, Sendable {
     }
 }
 
-extension Character {
+public extension Character {
     static let empty = Character(
         name: "",
         imageUrl: URL(string: "google.com")!,
