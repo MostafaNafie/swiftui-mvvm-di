@@ -7,27 +7,22 @@
 
 import XCTest
 import SwiftUI
+@testable import Main
 @testable import CharacterList
 @testable import CharacterDetails
 @testable import SharedCharacterData
 
 class CharacterListViewModelTests: XCTestCase {
     private var sut: CharacterListViewModel!
-    private var coordinatorSpy: CharacterCoordinatorSpy!
-    private var repository: CharacterRepository!
 
     override func setUp() {
-        repository = CharacterRepository(networkService: MockCharacterListNetworkService())
-        let interactor = CharacterListInteractor(repository: repository)
-        coordinatorSpy = CharacterCoordinatorSpy()
-        sut = CharacterListViewModel(
-            interactor: interactor,
-            coordinator: coordinatorSpy
-        )
+        Container.shared.networkService.register { CharacterListNetworkServiceStub() }
+        Container.shared.characterCoordinator.register { CharacterCoordinatorSpy() }
+        sut = Container.shared.characterListViewModel()
     }
     
     override func tearDown() {
-        self.sut = nil
+        sut = nil
     }
     
     func test_returns_correct_initial_state() {
@@ -91,6 +86,7 @@ class CharacterListViewModelTests: XCTestCase {
 
     @MainActor
     func test_did_tap_character_navigates_successfully() async {
+        let coordinatorSpy = Container.shared.characterCoordinator() as! CharacterCoordinatorSpy
         await sut.didTapCharacter(with: 3)
 
         let expectedValue = 1
@@ -100,6 +96,7 @@ class CharacterListViewModelTests: XCTestCase {
 
     @MainActor
     func test_did_tap_character_correct_selected_character() async {
+        let repository = Container.shared.characterRepository()
         await sut.viewDidLoad()
         await sut.didTapCharacter(with: 3)
 
