@@ -24,13 +24,7 @@ extension CharacterRepository: CharacterListRepositoryProtocol {
             case .success(let charactersResponse):
                 characters = charactersResponse
                 return .success(
-                    charactersResponse.map {
-                        CharacterList.Character(
-                            id: $0.id,
-                            name: $0.name,
-                            imageUrl: URL(string: $0.img)!
-                        )
-                    }
+                    charactersResponse.map { $0.toListCharacter() }
                 )
             case .failure(let error):
                 return .failure(error)
@@ -47,11 +41,6 @@ extension CharacterRepository: CharacterDetailsRepositoryProtocol {
         guard let character = characters.first(where: { $0.id == selectedCharacterID }) else {
             fatalError("No character with id: \(selectedCharacterID)")
         }
-        return CharacterDetails.Character(
-            name: character.name,
-            imageUrl: URL(string: character.img)!,
-            nickname: character.nickname,
-            birthday: character.birthday
-        )
+        return character.toDetailsCharacter()
     }
 }

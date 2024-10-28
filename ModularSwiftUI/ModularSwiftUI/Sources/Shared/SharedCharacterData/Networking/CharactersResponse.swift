@@ -22,6 +22,19 @@ struct Character: Codable, Sendable {
     let category: Category?
     let betterCallSaulAppearance: [Int]?
 
+    enum Category: String, Codable {
+        case betterCallSaul = "Better Call Saul"
+        case breakingBad = "Breaking Bad"
+        case breakingBadBetterCallSaul = "Breaking Bad, Better Call Saul"
+    }
+
+    enum Status: String, Codable {
+        case alive = "Alive"
+        case deceased = "Deceased"
+        case presumedDead = "Presumed dead"
+        case unknown = "Unknown"
+    }
+
     enum CodingKeys: String, CodingKey {
         case id = "char_id"
         case name, birthday, occupation, img, status, nickname, appearance, portrayed, category
@@ -29,15 +42,21 @@ struct Character: Codable, Sendable {
     }
 }
 
-enum Category: String, Codable {
-    case betterCallSaul = "Better Call Saul"
-    case breakingBad = "Breaking Bad"
-    case breakingBadBetterCallSaul = "Breaking Bad, Better Call Saul"
-}
+extension Character {
+    func toListCharacter() -> CharacterList.Character {
+        .init(
+            id: id,
+            name: name,
+            imageUrl: URL(string: img)!
+        )
+    }
 
-enum Status: String, Codable {
-    case alive = "Alive"
-    case deceased = "Deceased"
-    case presumedDead = "Presumed dead"
-    case unknown = "Unknown"
+    func toDetailsCharacter() -> CharacterDetails.Character {
+        .init(
+            name: name,
+            imageUrl: URL(string: img)!,
+            nickname: nickname,
+            birthday: birthday
+        )
+    }
 }
