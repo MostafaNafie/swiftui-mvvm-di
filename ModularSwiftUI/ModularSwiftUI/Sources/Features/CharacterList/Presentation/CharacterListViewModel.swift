@@ -13,6 +13,7 @@ public protocol CharacterCoordinating {
 
 @Observable
 public final class CharacterListViewModel {
+
     var filteredCharacters: [Character] = []
     var searchQuery: String = "" {
         didSet {
@@ -20,7 +21,7 @@ public final class CharacterListViewModel {
         }
     }
     var isLoading: Bool = true
-    var error: Error? = nil
+    var error: Error?
 
     private let interactor: CharacterListInteractor
     private let coordinator: CharacterCoordinating

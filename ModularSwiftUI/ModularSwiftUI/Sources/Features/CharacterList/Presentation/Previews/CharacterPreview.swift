@@ -11,8 +11,8 @@ extension Character {
     static let preview = Character(
         id: 1,
         name: "Walter White",
-        imageUrl: URL(
-            string: "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
+        // swiftlint:disable:next line_length
+        imageUrl: URL(string: "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
         )!
     )
 }

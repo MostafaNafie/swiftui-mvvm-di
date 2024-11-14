@@ -10,7 +10,7 @@ import Kingfisher
 
 struct CircleImageView: View {
     var imageUrl: URL
-    
+
     var body: some View {
         KFImage(imageUrl)
             .resizable()

@@ -14,7 +14,7 @@ extension Container {
             URLSessionClient()
         }.singleton
     }
-    
+
     var characterCoordinator: Factory<CharacterCoordinating> {
         self {
             CharacterCoordinator()

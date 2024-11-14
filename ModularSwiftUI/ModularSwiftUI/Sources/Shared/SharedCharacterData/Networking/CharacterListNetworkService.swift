@@ -13,11 +13,11 @@ public protocol CharacterListNetworkServicing: Sendable {
 
 public struct CharacterListNetworkService: CharacterListNetworkServicing {
     private let client: HTTPClient
-    
+
     public init(client: HTTPClient) {
         self.client = client
     }
-    
+
     public func fetchCharacters() async -> Result<CharactersResponse, Error> {
         let request = CharactersRequest().buildURLRequest()
         return await client.perform(request)

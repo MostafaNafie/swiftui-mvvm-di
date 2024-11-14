@@ -10,9 +10,9 @@ import Kingfisher
 
 struct CharacterRowView: View {
     let character: Character
-    
+
     @State private var isAnimating = true
-    
+
     var body: some View {
         KFImage(character.imageUrl)
             .fade(duration: 0.35)

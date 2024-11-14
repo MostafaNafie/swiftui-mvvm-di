@@ -20,15 +20,15 @@ class CharacterListViewModelTests: XCTestCase {
         Container.shared.characterCoordinator.register { CharacterCoordinatorSpy() }
         sut = Container.shared.characterListViewModel()
     }
-    
+
     override func tearDown() {
         sut = nil
     }
-    
+
     func test_returns_correct_initial_state() {
         let expectedValue = 0
         let actualValue = sut.filteredCharacters.count
-        
+
         XCTAssertEqual(actualValue, expectedValue)
     }
 
@@ -38,7 +38,7 @@ class CharacterListViewModelTests: XCTestCase {
 
         let expectedValue = 3
         let actualValue = sut.filteredCharacters.count
-        
+
         XCTAssertEqual(actualValue, expectedValue)
     }
 
@@ -56,7 +56,7 @@ class CharacterListViewModelTests: XCTestCase {
     func test_returns_correct_filtered_characters() async {
         await sut.viewDidLoad()
         sut.searchQuery = "wh"
-        
+
         var expectedValue = "Walter White"
         var actualValue = sut.filteredCharacters.first?.name
         XCTAssertEqual(actualValue, expectedValue)

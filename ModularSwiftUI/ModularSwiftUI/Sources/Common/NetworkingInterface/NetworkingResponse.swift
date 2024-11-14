@@ -12,7 +12,7 @@ public struct NetworkingResponse<T> {
         self.value = value
         self.response = response
     }
-    
+
     public let value: T
     let response: URLResponse
 }
