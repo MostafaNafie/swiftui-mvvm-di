@@ -1,0 +1,35 @@
+excluded:
+  - Tests
+
+opt_in_rules:
+  - indentation_width
+  - redundant_type_annotation
+  - force_try
+  - operator_usage_whitespace
+
+disabled_rules:
+  - force_cast
+  - trailing_comma
+
+#### Custom configurations
+
+indentation_width:
+  indentation_width: 4
+
+identifier_name:
+  min_length:
+    warning: 2
+
+nesting:
+  type_level:
+    warning: 2
+
+switch_case_alignment:
+  indented_cases: true
+
+type_name:
+  max_length:
+    warning: 200
+
+allow_zero_lintable_files: true
+
