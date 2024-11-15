@@ -19,21 +19,27 @@ extension CharacterListViewModel {
                 .init(
                     id: 1,
                     name: "Walter White",
-                    // swiftlint:disable:next line_length
-                    imageUrl: URL(string: "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg")!
+                    imageUrl: URL(
+                        string:  // swiftlint:disable:next line_length
+                            "https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg"
+                    )!
                 ),
                 .init(
                     id: 2,
                     name: "Jesse Pinkman",
-                    // swiftlint:disable:next line_length
-                    imageUrl: URL(string: "https://vignette.wikia.nocookie.net/breakingbad/images/9/95/JesseS5.jpg/revision/latest?cb=20120620012441")!
+                    imageUrl: URL(
+                        string:  // swiftlint:disable:next line_length
+                            "https://vignette.wikia.nocookie.net/breakingbad/images/9/95/JesseS5.jpg/revision/latest?cb=20120620012441"
+                    )!
                 ),
                 .init(
                     id: 3,
                     name: "Henry Schrader",
-                    // swiftlint:disable:next line_length
-                    imageUrl: URL(string: "https://vignette.wikia.nocookie.net/breakingbad/images/b/b7/HankS5.jpg/revision/latest/scale-to-width-down/700?cb=20120620014136")!
-                )
+                    imageUrl: URL(
+                        string:  // swiftlint:disable:next line_length
+                            "https://vignette.wikia.nocookie.net/breakingbad/images/b/b7/HankS5.jpg/revision/latest/scale-to-width-down/700?cb=20120620014136"
+                    )!
+                ),
             ])
         }
 

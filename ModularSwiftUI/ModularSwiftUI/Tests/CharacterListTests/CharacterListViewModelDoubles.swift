@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 @testable import SharedCharacterData
 
 struct CharacterListNetworkServiceStub: CharacterListNetworkServicing {
@@ -50,7 +51,7 @@ struct CharacterListNetworkServiceStub: CharacterListNetworkServicing {
                     portrayed: nil,
                     category: nil,
                     betterCallSaulAppearance: nil
-                )
+                ),
             ]
         )
     }

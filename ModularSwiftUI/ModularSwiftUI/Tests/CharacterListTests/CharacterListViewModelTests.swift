@@ -5,11 +5,12 @@
 //  Created by Mostafa Nafie on 26/09/2022.
 //
 
-import XCTest
 import SwiftUI
-@testable import Main
-@testable import CharacterList
+import XCTest
+
 @testable import CharacterDetails
+@testable import CharacterList
+@testable import Main
 @testable import SharedCharacterData
 
 class CharacterListViewModelTests: XCTestCase {

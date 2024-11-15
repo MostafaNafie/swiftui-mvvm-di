@@ -63,8 +63,10 @@ private extension CharacterListViewModel {
 
     func filterCharacters(by searchQuery: String) {
         filteredCharacters = characters.filter {
-            searchQuery.isEmpty ? true : $0.name
-                .localizedCaseInsensitiveContains(searchQuery)
+            searchQuery.isEmpty
+                ? true
+                : $0.name
+                    .localizedCaseInsensitiveContains(searchQuery)
         }
     }
 }

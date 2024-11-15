@@ -6,7 +6,7 @@ let main: [Target] = [
     .target(
         name: "Main",
         dependencies: [
-            "SharedCharacterData",
+            "SharedCharacterData"
         ]
     )
 ]
@@ -19,21 +19,21 @@ let shared: [Target] = [
             "CharacterDetails",
         ],
         path: "Sources/Shared/SharedCharacterData"
-    ),
+    )
 ]
 
 let features: [Target] = [
     .target(
         name: "CharacterList",
         dependencies: [
-            "Common",
+            "Common"
         ],
         path: "Sources/Features/CharacterList"
     ),
     .target(
         name: "CharacterDetails",
         dependencies: [
-            "Common",
+            "Common"
         ],
         path: "Sources/Features/CharacterDetails"
     ),
@@ -46,7 +46,7 @@ let common: [Target] = [
             "Factory",
             "Kingfisher",
         ]
-    ),
+    )
 ]
 
 let tests: [Target] = [
@@ -57,7 +57,7 @@ let tests: [Target] = [
             "SharedCharacterData",
             "CharacterList",
         ]
-    ),
+    )
 ]
 
 let thirdPartyDependencies: [Package.Dependency] = [
@@ -78,13 +78,9 @@ let package = Package(
         .library(
             name: "ModularSwiftUI",
             targets: ["Main"]
-        ),
+        )
     ],
     dependencies: thirdPartyDependencies,
     targets:
-        main +
-        shared +
-        features +
-        common +
-        tests
+        main + shared + features + common + tests
 )

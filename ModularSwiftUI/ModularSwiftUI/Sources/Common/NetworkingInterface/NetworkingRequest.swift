@@ -20,8 +20,11 @@ public extension NetworkingRequest {
     var body: Data? { nil }
 
     func buildURLRequest() -> URLRequest {
-        // swiftlint:disable:next line_length
-        let baseURL = URL(string: "https://gist.githubusercontent.com/MostafaNafie/2873132c8b48f445d3e383b466966c08/raw/8e948b91043bff6223bafc1aac4b2d6d0f5d04ae")!
+        let baseURL =
+            URL(
+                string:  // swiftlint:disable:next line_length
+                    "https://gist.githubusercontent.com/MostafaNafie/2873132c8b48f445d3e383b466966c08/raw/8e948b91043bff6223bafc1aac4b2d6d0f5d04ae"
+            )!
         let pathURL = baseURL.appendingPathComponent(path)
         var urlRequest = URLRequest(url: pathURL)
         urlRequest.httpMethod = method.rawValue

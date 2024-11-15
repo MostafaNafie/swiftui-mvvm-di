@@ -5,8 +5,8 @@
 //  Created by Mostafa Nafie on 27/09/2022.
 //
 
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 public struct CharacterDetailsScreen: View {
     @State var viewModel: CharacterDetailsViewModel

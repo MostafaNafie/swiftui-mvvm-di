@@ -1,6 +1,6 @@
 //
 //  CharacterDetailsInteractor.swift
-//  
+//
 //
 //  Created by Nafie on 21/10/2024.
 //

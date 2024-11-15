@@ -5,8 +5,8 @@
 //  Created by Mostafa Nafie on 29/09/2022.
 //
 
-import SwiftUI
 import Observation
+import SwiftUI
 
 @Observable
 class CharacterCoordinator: Identifiable {

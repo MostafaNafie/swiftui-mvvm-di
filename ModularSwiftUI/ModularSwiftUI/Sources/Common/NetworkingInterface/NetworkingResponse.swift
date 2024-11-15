@@ -1,6 +1,6 @@
 //
 //  NetworkingResponse.swift
-//  
+//
 //
 //  Created by Mostafa Nafie on 30/09/2022.
 //

@@ -5,8 +5,8 @@
 //  Created by Nafie on 21/10/2024.
 //
 
-@_exported import CharacterList
 @_exported import CharacterDetails
+@_exported import CharacterList
 
 public final actor CharacterRepository {
     private let networkService: CharacterListNetworkServicing

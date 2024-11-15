@@ -5,8 +5,8 @@
 //  Created by Mostafa Nafie on 26/09/2022.
 //
 
-import SwiftUI
 import Main
+import SwiftUI
 
 @main
 struct ModularSwiftUIApp: App {
