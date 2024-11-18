@@ -81,6 +81,5 @@ let package = Package(
         )
     ],
     dependencies: thirdPartyDependencies,
-    targets:
-        main + shared + features + common + tests
+    targets: main + shared + features + common + tests
 )
