@@ -5,23 +5,22 @@
 //  Created by Mostafa Nafie on 26/09/2022.
 //
 
-import Observation
+import Foundation
 
 public protocol CharacterCoordinating {
     @MainActor func didTapCharacter()
 }
 
-@Observable
-public final class CharacterListViewModel {
+public final class CharacterListViewModel: ObservableObject {
+    @Published var filteredCharacters: [Character] = []
+    @Published var isLoading: Bool = true
+    @Published var error: Error?
 
-    var filteredCharacters: [Character] = []
     var searchQuery: String = "" {
         didSet {
             filterCharacters(by: searchQuery)
         }
     }
-    var isLoading: Bool = true
-    var error: Error?
 
     private let interactor: CharacterListInteractor
     private let coordinator: CharacterCoordinating

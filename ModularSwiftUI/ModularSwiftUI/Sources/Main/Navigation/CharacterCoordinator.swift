@@ -5,13 +5,11 @@
 //  Created by Mostafa Nafie on 29/09/2022.
 //
 
-import Observation
 import SwiftUI
 
-@Observable
-class CharacterCoordinator: Identifiable {
-    var characterListScreen: CharacterListScreen!
-    var characterDetailsScreen: CharacterDetailsScreen!
+class CharacterCoordinator: ObservableObject, Identifiable {
+    @Published var characterListScreen: CharacterListScreen!
+    @Published var characterDetailsScreen: CharacterDetailsScreen!
 
     @MainActor
     func start() {

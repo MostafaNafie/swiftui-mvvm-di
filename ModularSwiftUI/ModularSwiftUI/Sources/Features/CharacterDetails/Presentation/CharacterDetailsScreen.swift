@@ -9,10 +9,10 @@ import Kingfisher
 import SwiftUI
 
 public struct CharacterDetailsScreen: View {
-    @State var viewModel: CharacterDetailsViewModel
+    @StateObject var viewModel: CharacterDetailsViewModel
 
     public init(viewModel: CharacterDetailsViewModel) {
-        self.viewModel = viewModel
+        self._viewModel = StateObject(wrappedValue: viewModel)
     }
 
     public var body: some View {
@@ -51,7 +51,6 @@ public struct CharacterDetailsScreen: View {
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
-        .scrollIndicators(.hidden)
         .onViewDidLoad {
             await viewModel.viewDidLoad()
         }

@@ -73,7 +73,7 @@ let thirdPartyDependencies: [Package.Dependency] = [
 
 let package = Package(
     name: "ModularSwiftUI",
-    platforms: [.iOS(.v17)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "ModularSwiftUI",

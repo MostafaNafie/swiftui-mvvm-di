@@ -5,11 +5,10 @@
 //  Created by Mostafa Nafie on 27/09/2022.
 //
 
-import Observation
+import Foundation
 
-@Observable
-public final class CharacterDetailsViewModel {
-    var character: Character = .empty
+public final class CharacterDetailsViewModel: ObservableObject {
+    @Published var character: Character = .empty
 
     private let interactor: CharacterDetailsInteractor
 

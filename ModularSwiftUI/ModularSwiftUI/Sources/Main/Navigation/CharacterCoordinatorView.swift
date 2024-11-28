@@ -8,10 +8,10 @@
 import SwiftUI
 
 public struct CharacterCoordinatorView: View {
-    @State var coordinator: CharacterCoordinator
+    @StateObject var coordinator: CharacterCoordinator
 
     init(coordinator: CharacterCoordinator) {
-        self.coordinator = coordinator
+        self._coordinator = StateObject(wrappedValue: coordinator)
         coordinator.start()
     }
 
